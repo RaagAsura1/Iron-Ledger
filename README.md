@@ -1,191 +1,201 @@
 # Iron Ledger
 
-**Train consistently. Track intelligently. Get stronger.**
+### No paywall. No compromises. Just better training.
 
-Iron Ledger is a personal fitness tracker designed to help you log workouts, build routines, monitor your progress, and keep your training history organized.
+Iron Ledger is an all-in-one fitness tracking app designed to help you log workouts, monitor your progress, track cardio, and understand your training — all in one place.
 
-🌐 **[Open Iron Ledger](https://raagasura1.github.io/Iron-Ledger/)**
+Whether you lift weights, train with bodyweight exercises, follow CrossFit-style workouts, or do cardio, Iron Ledger gives you the tools to keep your training organized and your progress visible.
 
-## ✨ Features
+**No subscription required. No paywall standing between you and your workouts. Just track, train, and improve.**
 
-### 🏋️ Workout
+🌐 **[Use Iron Ledger Online](https://raagasura1.github.io/Iron-Ledger/)** · 📱 **[Download for Android](https://github.com/RaagAsura1/Iron-Ledger)** · 💻 **[View Source Code](https://github.com/RaagAsura1/Iron-Ledger)**
 
-* Start and log workouts.
-* Choose between Gym, Calisthenics, and Cardio training modes.
-* Use predefined routines or create your own training sessions.
-* Record exercises, sets, repetitions, weights, and other relevant measurements.
-* Log workouts you have already completed.
+---
 
-### 📋 History
+## 💪 Features
+
+### 🏋️ Comprehensive Workout Tracking
+
+Track different styles of training without needing separate apps.
+
+* **Gym training:** Record exercises, sets, reps, and weights.
+* **Calisthenics:** Track bodyweight exercises and your training sessions.
+* **CrossFit-style workouts:** Organize workout-of-the-day sessions.
+* **Cardio:** Record activities using duration, distance, and other relevant metrics.
+* **Flexible sets:** Support for warm-up sets, drop sets, and failure sets.
+* **Workout notes:** Add context to your sessions.
+* **Workout duration:** Keep track of how long you train.
+* **Retroactive logging:** Add workouts after you've completed them.
+* **Resume workouts:** Continue an active session instead of starting from scratch.
+
+### ⚡ Faster Workout Logging
+
+Spend less time entering data and more time training.
+
+* Log exercises and workout details using natural-language input where supported.
+* Create, edit, save, and reuse workout routines.
+* Maintain an exercise library with categories.
+* Add custom exercises to suit your training.
+* Keep your workouts structured and repeatable.
+
+### 📈 Progress Tracking and Analytics
+
+Your training history should tell you more than just how many times you visited the gym.
 
 * Review previous workouts.
-* Browse your training history.
-* Revisit recorded exercises and workout details.
+* Browse your training history through a calendar.
+* Track personal records and performance improvements.
+* Review weekly training summaries.
+* Visualize muscle-group activity with a seven-day muscle heatmap.
+* Use your logged data to understand your consistency and training patterns.
 
-### 📈 Progress
+### 🏃 Cardio Tracking
 
-* Monitor workout statistics and training consistency.
-* Track personal records and progress over time.
-* Review your training history to understand your development.
+Keep your endurance training alongside your strength workouts.
 
-### 💪 Exercises
+* Record cardio duration and distance.
+* Review pace and speed metrics.
+* View estimated calorie expenditure where supported.
+* Import GPX activity files.
+* Visualize routes and elevation information from imported route data.
+* Review split information where available.
+* Detect duplicate routes where supported.
 
-* Browse the exercise library.
-* Find exercises and manage custom exercises.
+*Route visualization uses imported activity data; do not assume continuous GPS tracking is available.*
 
-### 📏 Body
+### 📏 Body Measurements
+
+Track changes beyond the numbers on the weight stack.
 
 * Record body measurements.
-* Monitor changes in your measurements over time.
+* Maintain a history of your measurements.
+* Review changes over time alongside your workout history.
 
-### 💾 Data Management
+### 🤖 AI Workout Assistance
 
-* Export workout history as CSV.
-* Export body measurements as CSV.
-* Create a complete JSON backup.
-* Restore your data from a backup.
+Get additional help with your training through the AI workout-coach functionality where available.
 
----
+* Explore workout guidance.
+* Get assistance with training-related questions.
+* Use AI-supported coaching features when the required integration is available.
 
-## 🚀 Getting Started
+*AI functionality may depend on an external service and its availability. It should not be assumed to work offline or without any required credentials or usage limits.*
 
-1. Open [Iron Ledger](https://raagasura1.github.io/Iron-Ledger/).
-2. Choose your preferred training mode.
-3. Start a workout, select a routine, or log a previously completed workout.
-4. Add exercises and record your training data.
-5. Finish your workout and review your progress in the History and Progress sections.
+### 📊 Reports and Data Management
 
-You can use Iron Ledger directly in your browser without installing anything.
+Your fitness history is valuable. Iron Ledger provides ways to review and preserve it.
 
----
+* Export workout data to CSV for analysis in spreadsheet applications.
+* Create a JSON backup of your app data.
+* Restore data from a compatible backup.
+* Keep a record of your training beyond the app interface.
 
-## 📱 Installation on Android
+### ⚙️ Personalization
 
-Android users can install Iron Ledger using the APK provided in this repository.
-
-1. Open the [Iron Ledger GitHub repository](https://github.com/RaagAsura1/Iron-Ledger).
-2. Find **Iron Ledger.apk** in the repository's file list.
-3. Download the APK to your Android phone.
-4. Open the downloaded file.
-5. If prompted, allow your browser or file manager to install apps from this source.
-6. Follow the on-screen instructions to complete the installation.
-7. Open Iron Ledger and start tracking your workouts.
-
-**Security note:** Android may warn you when installing an APK downloaded outside the Google Play Store. Only install APKs from sources you trust.
-
-Alternatively, you can use the [web version](https://raagasura1.github.io/Iron-Ledger/) directly in your mobile browser.
+* Configure available app preferences.
+* Choose supported measurement units.
+* Use sample data where available to explore the interface.
 
 ---
 
-## 🍎 Installation on iPhone (iOS)
+## 📱 Get Started
 
-iOS users can create a Home Screen shortcut to a working Iron Ledger artifact using the Claude app.
+### Option 1: Use the Web App
 
-Unlike Android, iOS does not allow you to install this APK. Follow the steps below to set up the web-based version on your iPhone.
+The easiest way to get started is directly through your browser.
 
-### Step 1: Install Claude
+1. Open **[Iron Ledger](https://raagasura1.github.io/Iron-Ledger/)**.
+2. Start logging your workouts.
+3. Explore the workout history, routines, and progress-tracking features.
+4. Add the website to your device's home screen if you want convenient access.
 
-1. Open the Apple App Store.
-2. Search for **Claude** by Anthropic.
-3. Install the app and sign in.
+No traditional installation is required to use the web version.
 
-### Step 2: Download the HTML file
+### Option 2: Install the Android APK
 
-1. Open the [Iron Ledger GitHub repository](https://github.com/RaagAsura1/Iron-Ledger).
-2. Select `index.html`.
-3. Download the file to your iPhone.
+An Android APK is available in the GitHub repository.
 
-Make sure you download the actual HTML file, not a screenshot or a copy of the source code displayed as text.
+1. Open the **[Iron Ledger GitHub repository](https://github.com/RaagAsura1/Iron-Ledger)**.
+2. Download the available APK file.
+3. Open the downloaded file on your Android device.
+4. If Android requests permission to install apps from that source, review the prompt and allow it if you trust the file.
+5. Complete the installation and launch Iron Ledger.
 
-### Step 3: Create your Iron Ledger artifact in Claude
+**Security note:** Android may display a warning when installing an APK downloaded outside the Play Store. Only install APKs from sources you trust.
 
-1. Open the Claude app.
+### Option 3: Use on iPhone or iPad
 
-2. Start a new chat.
+You can access the web version through Safari and add a home-screen shortcut.
 
-3. Upload the downloaded `index.html` file.
+1. Open [Iron Ledger](https://raagasura1.github.io/Iron-Ledger/) in Safari.
+2. Tap the Share icon.
+3. Select **Add to Home Screen**.
+4. Confirm the name and add the shortcut.
 
-4. Copy and send Claude the following prompt:
-
-   > Create a new, fully functional Claude artifact named "Iron Ledger" from this uploaded HTML file. Preserve the complete design, all existing features, workout tracking functionality, sample data, and data persistence. Make sure all buttons, tabs, forms, charts, and other interactive elements work as intended. Do not remove, simplify, or replace any existing functionality. Make the artifact accessible through a published URL that I can open on my iPhone and add to my Home Screen. Do not just display the HTML source code; run it as a working interactive application.
-
-5. Allow Claude to create the artifact.
-
-6. Test the application. Check that the tabs, workout logging, routines, history, progress tracking, and settings work as expected.
-
-7. Publish the artifact if prompted to do so.
-
-8. Copy the published artifact URL.
-
-**Important:** Claude may not reproduce every feature of the original application exactly. Test the published version before using it as your primary workout tracker. Data stored in the original browser-based app may not automatically transfer to the Claude artifact.
-
-### Step 4: Create an Iron Ledger shortcut
-
-Use Apple's built-in **Shortcuts** app to add an icon to your iPhone Home Screen.
-
-1. Open the **Shortcuts** app.
-2. Tap the **+** button to create a new shortcut.
-3. Tap **Add Action**.
-4. Search for **Open URLs** and select the action.
-5. Paste the published Iron Ledger artifact URL from Claude into the URL field.
-6. Tap the shortcut name at the top and rename it **Iron Ledger**.
-7. Open the shortcut's details or sharing menu and select **Add to Home Screen**. The exact menu location may vary by iOS version.
-8. Set the Home Screen name to **Iron Ledger**.
-9. Choose a custom icon if desired.
-10. Tap **Add** to finish.
-
-You should now see an Iron Ledger icon on your iPhone Home Screen. Tap it to launch the published artifact.
-
-**Please note:** This creates a shortcut to a web-based application, not a native iOS app. An internet connection may be required, and the availability of your workout data depends on the artifact's storage implementation.
+This creates a convenient way to launch the website. It does not turn the website into a native iOS app, and browser storage and platform limitations still apply.
 
 ---
 
-## 🔐 Back Up Your Data
+## 💾 Your Data Matters
 
-Your workout history is valuable. Back it up regularly.
+Iron Ledger's web version uses browser-side storage for app data.
 
-1. Open Iron Ledger.
-2. Go to **Settings**.
-3. Find the **Export and backup** section.
-4. Select **Full backup (JSON)**.
-5. Save the downloaded backup file somewhere safe.
+Keep the following in mind:
 
-To restore your data, open Settings and select **Restore backup**, then choose your saved JSON backup.
+* **Browser data is not automatically the same as cloud storage.** Your workouts may not appear on another device simply because you open the same website.
+* Clearing browser data or site storage can remove locally stored information.
+* Using another browser or device may give you a separate data store.
+* Export backups regularly if you want to preserve your training history.
+* Before restoring a backup, make sure you understand whether the operation replaces or merges existing data.
 
-You can also export workout history and body measurements as CSV files for use in spreadsheet applications.
-
-### Important data-storage information
-
-The original web application stores data in your browser's local storage. This means:
-
-* Your data does not automatically synchronize between devices.
-* Different browsers may have separate copies of your data.
-* Clearing browser data may remove your saved workouts.
-* The original web version and a Claude artifact may store data separately.
-
-**Always create a backup before switching devices, clearing browser data, or moving to another version of Iron Ledger.**
+**Recommended practice:** Create regular JSON backups and keep copies somewhere safe. Export CSV files when you want to analyze your workouts outside the app.
 
 ---
 
-## 🛠️ Technology
+## 🎯 Why Iron Ledger?
 
-Iron Ledger is distributed as a web application, with an Android APK also provided in the repository.
+Fitness tracking shouldn't require a collection of separate apps or a recurring subscription just to keep a record of your training.
 
-* **Web application:** HTML, CSS, and JavaScript.
-* **Web hosting:** GitHub Pages.
-* **Android:** APK distribution.
-* **iOS:** Web-based artifact with a Home Screen shortcut.
+Iron Ledger brings workout logging, routines, training history, progress analytics, cardio records, and data exports together in one place.
 
----
+Whether you're building strength, improving endurance, or simply trying to stay consistent, the goal is straightforward:
 
-## 🐛 Feedback and Feature Requests
-
-Found a bug or have an idea for an improvement?
-
-Open an issue in the [Iron Ledger GitHub repository](https://github.com/RaagAsura1/Iron-Ledger/issues).
-
-Contributions and suggestions are welcome.
+**Train with purpose. Track your progress. Keep getting better.**
 
 ---
 
-*Iron Ledger — Train consistently. Track intelligently. Get stronger.*
+## 🛠️ Built for Practical Use
+
+Iron Ledger is available as a browser-based application, with an Android APK also provided in the repository.
+
+The project is built around practical workout tracking and a straightforward interface, with the aim of making fitness data easier to record, review, and preserve.
+
+For technical details, implementation, and the latest project files, visit the repository:
+
+**[RaagAsura1/Iron-Ledger on GitHub](https://github.com/RaagAsura1/Iron-Ledger)**
+
+---
+
+## 🐛 Feedback and Issues
+
+Found a bug? Have an idea for a feature? Something not working as expected?
+
+Your feedback can help improve Iron Ledger.
+
+* **Report a bug:** [Open a GitHub issue](https://github.com/RaagAsura1/Iron-Ledger/issues)
+* **Suggest a feature:** [Share your idea](https://github.com/RaagAsura1/Iron-Ledger/issues)
+* **Explore the code:** [View the repository](https://github.com/RaagAsura1/Iron-Ledger)
+
+When reporting an issue, include the device, browser or operating system, the steps to reproduce the problem, and any relevant error messages.
+
+---
+
+## ❤️ The Philosophy
+
+Your fitness journey is yours. Your goals, your routines, your progress.
+
+Iron Ledger is built around the idea that useful fitness tracking should be accessible without putting essential workout logging behind a subscription.
+
+### No paywall. No compromises. Just better training.
+
+**Now go lift something.** 💪
