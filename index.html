@@ -1734,6 +1734,28 @@ body.row-edit.kb-open #editor .ed-rest:not([hidden]){display:flex!important}
 /* v184.1: long suggestions wrap instead of being cut off on narrow screens; the value itself never breaks */
 .hint1 .h1-t{white-space:normal;overflow:visible;text-overflow:clip;line-height:1.3}
 .hint1:not(.multi) .h1-t b{white-space:nowrap;display:inline-block}
+
+/* v184.2 prototype: in-app keypad in the dock */
+html:root #editor .set .si.kp-on{background:color-mix(in srgb,var(--accent) 22%,var(--surface))!important;box-shadow:inset 0 0 0 2.5px var(--accent)!important;color:var(--ink)!important;font-weight:700}
+#dockSet .dock.kp{gap:8px}
+.kp-fields{display:flex;gap:8px}
+.kp-f{flex:1;min-width:0;display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:48px;padding:4px 12px;border-radius:12px;border:0;background:var(--surface2);color:var(--muted);font:inherit;font-size:0.8824rem;touch-action:manipulation}
+.kp-f b{color:var(--ink);font-size:1.4118rem;font-weight:700;white-space:nowrap}
+.kp-f.on{box-shadow:inset 0 0 0 2.5px var(--accent);background:color-mix(in srgb,var(--accent) 16%,var(--surface2))}
+.kp-caret{display:inline-block;width:2px;height:1em;background:var(--accent);margin-left:2px;vertical-align:-2px;animation:kpBlink 1s steps(1) infinite}
+@keyframes kpBlink{50%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.kp-caret{animation:none}}
+.kp-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:8px}
+.kp-keys{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.kp-keys button,.kp-pm button{display:flex;align-items:center;justify-content:center;padding:0;min-height:46px;border:0;border-radius:10px;background:var(--surface2);color:var(--ink);font:inherit;font-size:1.2941rem;font-weight:600;touch-action:manipulation}
+.kp-keys button:active,.kp-pm button:active{background:color-mix(in srgb,var(--accent) 25%,var(--surface2))}
+.kp-side{display:flex;flex-direction:column;gap:6px;min-width:0}
+.kp-pm{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.kp-step{min-height:44px;border:1px dashed color-mix(in srgb,var(--ink) 28%,transparent);border-radius:10px;background:none;color:var(--muted);font:inherit;font-size:0.8235rem;line-height:1.2;text-align:center;padding:4px 6px;display:flex;align-items:center;justify-content:center;gap:4px;flex-wrap:wrap}
+.kp-step b{color:var(--ink);white-space:nowrap}
+.kp-step-r{border-style:solid;border-color:transparent}
+.kp-close{min-height:44px;border:0;border-radius:10px;background:var(--surface2);color:var(--ink);font:inherit;font-size:0.8824rem;font-weight:600;touch-action:manipulation}
+.dock.kp .kp-done{margin-top:auto;min-height:48px;width:100%}
 </style>
 
 <header class="top"><div class="brand"><svg class="brand-logo" viewBox="90 30 200 200" width="30" height="30" role="img" aria-label="Iron Ledger logo"><rect x="90" y="30" width="200" height="200" rx="44" fill="#1C1F24"/><rect x="100" y="40" width="180" height="180" rx="36" fill="none" stroke="#3A404A" stroke-width="2"/><line x1="112" y1="100" x2="268" y2="100" stroke="#AEB6BF" stroke-width="6" stroke-linecap="round"/><rect x="136" y="58" width="16" height="84" rx="4" fill="#D5DAE0"/><rect x="156" y="70" width="11" height="60" rx="3" fill="#AEB6BF"/><rect x="228" y="58" width="16" height="84" rx="4" fill="#D5DAE0"/><rect x="213" y="70" width="11" height="60" rx="3" fill="#AEB6BF"/><rect x="128" y="164" width="124" height="6" rx="3" fill="#E8622C"/><rect x="128" y="179" width="92" height="6" rx="3" fill="#6B7480"/><rect x="128" y="194" width="60" height="6" rx="3" fill="#6B7480"/></svg><span class="brand-name">Iron Ledger</span></div><div class="top-in"><h1 id="topTitle">Workout</h1><div class="top-act" id="topAct"></div></div><div class="mode-in" id="modeBar"></div></header>
@@ -3246,6 +3268,7 @@ function exBlock(e,ei,ssi){
     else if(k==='r')f=inp('r',s.r??'',ph.r??'','numeric');
     else if(k==='t')f=inp('t',s.t?fmtDur(s.t):'',ph.t?fmtDur(ph.t):'m:ss','text');
     else f=inp('d',dInv(s.d),ph.d!=null?dInv(ph.d):'','decimal')+inp('t',s.t?fmtDur(s.t):'',ph.t?fmtDur(ph.t):'m:ss','text');
+    if(ED.mode==='live'&&kpOn()&&(k==='wr'||k==='r'))f=f.replace(/<input class="si" data-f="(w|r)"/g,(m,ff)=>`<input class="si${KP&&KP.s===s&&KP.f===ff?' kp-on':''}" data-f="${ff}" readonly data-act="kpOpen"`);
     const pr=s.done&&isLivePR(e.exId,k,s);
     const isCur=si===curSi,open=false;
     return`<div class="set ${cols} ${s.done?'done':''} ${isAf(s)?'af':''} ${isCur?'cur':''} ${open?'open':''}" data-ei="${ei}" data-si="${si}"><button class="set-n t-${s.type||'n'}" data-act="setMenu" aria-label="Set options">${lab}${s.rpe?`<small class="rpe">${effShort(s.rpe)}</small>`:''}</button><button class="set-prev" data-act="usePrev" ${p?'':'disabled'} aria-label="Use previous"><span class="sp-t">${p?esc(fmtSet(k,p)):'–'}</span></button>${f}<button class="chk ${pr?'trophy':''}" data-act="tick" aria-label="Mark set done" aria-pressed="${!!s.done}">${pr?I.trophy:I.check}</button></div>`+(open?stepPanel(e,ei,si,k,ph):'')+(si===plSi?plateLine(s.w!=null?s.w:ph.w,si,e.exId):'')+(k==='dt'?cPaceLine(e,ei,si,s,ph):'');
@@ -3282,6 +3305,7 @@ function renderDock(){const box=$('#dockSet');if(!box||!ED||ED.mode!=='live')ret
   const af=isAf(s);const sub=[`${lab}${!s.type||s.type==='n'?' of '+work:''}`,af?'filled in from last time':p?'last '+fmtSet(k,p):'',tg&&(!p||fmtSet(k,p)!==tg)&&!overloadHint(e)?'target '+tg:''].filter(Boolean).join(' · ');
   nativeStatus(exName(ex),sub);
   const steps=S.settings.steppers!==false;
+  if(KP){if(KP.s!==s||!(k==='wr'||k==='r')||!kpOn())KP=null;else{box.innerHTML=kpHtml(t,e,s,ex,k,sub,steps);dockPad();return;}}
   const g=(f,u,txt)=>`<div class="dk-f">${steps&&f!=='d'?`<button class="dk-pm" data-act="step" data-f="${f}" data-d="-1" aria-label="Less ${u}">−</button>`:''}<button class="dk-v" data-act="dockType" data-f="${f}" aria-label="Type ${u}"><b class="num">${txt}</b><small>${u}</small></button>${steps&&f!=='d'?`<button class="dk-pm" data-act="step" data-f="${f}" data-d="1" aria-label="More ${u}">+</button>`:''}</div>`;
   let ctl='';const w=val('w'),r=val('r'),tt=val('t'),d=val('d');
   if(k==='wr')ctl=g('w',U.w(),w!=null?esc(String(wInv(w))):'–')+g('r','reps',r!=null?r:'–');
@@ -4120,6 +4144,7 @@ function settingsSheet(){
     <div class="field"><span class="lbl">Effort rating</span><div class="seg"><button data-sa="eff" data-v="rpe" aria-pressed="${S.settings.effort!=='rir'}">RPE</button><button data-sa="eff" data-v="rir" aria-pressed="${S.settings.effort==='rir'}">RIR</button></div></div>
     <div class="field"><span class="lbl">Count body weight in volume</span><div class="seg"><button data-sa="bwv" data-v="1" aria-pressed="${S.settings.bwVol!==false}">On</button><button data-sa="bwv" data-v="0" aria-pressed="${S.settings.bwVol===false}">Off</button></div><p class="muted" style="font-size:0.8824rem;margin:6px 0 0">Pull-ups, dips and push-ups count your logged body weight × reps.</p></div>
     <div class="field"><span class="lbl">Fill in last time’s values</span><div class="seg"><button data-sa="af" data-v="1" aria-pressed="${S.settings.autofill!==false}">On</button><button data-sa="af" data-v="0" aria-pressed="${S.settings.autofill===false}">Off</button></div><p class="muted" style="font-size:0.8824rem;margin:6px 0 0">New workouts start with your weights and reps from last time. Just tick each set.</p></div>
+    <div class="field"><span class="lbl">Typing numbers during a workout</span><div class="seg"><button data-sa="kpad" data-v="1" aria-pressed="${S.settings.kpad!==false}">In-app keypad</button><button data-sa="kpad" data-v="0" aria-pressed="${S.settings.kpad===false}">Phone keyboard</button></div></div>
     <div class="field"><span class="lbl">Big +/− buttons while logging</span><div class="seg"><button data-sa="stp" data-v="1" aria-pressed="${S.settings.steppers!==false}">On</button><button data-sa="stp" data-v="0" aria-pressed="${S.settings.steppers===false}">Off</button></div></div>
     ${isLb()?'':`<div class="field"><span class="lbl">Barbell & other: step for + / − (kg)</span><div class="seg">${[1,1.25,2,2.5].map(v=>`<button data-sa="wstep" data-v="${v}" aria-pressed="${(+S.settings.wstep||2.5)===v}">${v}</button>`).join('')}</div></div>`}
     <div class="field"><span class="lbl">Barbell plates and default bar</span><button class="pl-cfgbtn" style="margin-top:0" data-sa="plcfg">${(()=>{const c=plateCfg();return`Bar ${pf(c.bar)} ${c.u} · plates ${c.have.map(pf).join(', ')}`;})()}<span>Change</span></button><p class="muted" style="font-size:0.8824rem;margin:6px 0 0">Used for the plates line under barbell sets. Tap that line during a workout to give one exercise its own bar.</p></div></div></details>
@@ -4162,6 +4187,7 @@ function settingsSheet(){
     if(a==='bgm'){const v=b.dataset.v;const mark=()=>$$('[data-sa="bgm"]',sh.el).forEach(x=>x.setAttribute('aria-pressed',x.dataset.v===bgMode()));setBg(v);mark();}
     if(a==='appear'){S.settings.appearance=b.dataset.v;touch('settings');applyTheme();render();refreshModeCols(sh);$$('[data-sa="appear"]',sh.el).forEach(x=>x.setAttribute('aria-pressed',x===b));}
     if(a==='stp'){S.settings.steppers=b.dataset.v==='1';touch('settings');$$('[data-sa="stp"]',sh.el).forEach(x=>x.setAttribute('aria-pressed',x===b));if(ED)renderEditorBody();}
+    if(a==='kpad'){S.settings.kpad=b.dataset.v==='1';touch('settings');$$('[data-sa="kpad"]',sh.el).forEach(x=>x.setAttribute('aria-pressed',x===b));KP=null;if(ED)renderEditorBody();}
     if(a==='wstep'){S.settings.wstep=+b.dataset.v;touch('settings');$$('[data-sa="wstep"]',sh.el).forEach(x=>x.setAttribute('aria-pressed',x===b));if(ED)renderEditorBody();}
     if(a==='xlW'){if(!S.workouts.length&&!S.body.length){toast('Nothing to export yet');return;}exportXlsx();}
     if(a==='csvW'){if(!S.workouts.length){toast('No workouts to export yet');return;}offerFile(`IronLedger-workouts-${toDateInput(Date.now())}.csv`,csvWorkouts());}
@@ -4306,7 +4332,15 @@ const ACT={
   dockSel:el=>{const{e,s}=setFrom(el);if(!s)return;ED.cur={s,pick:true};if(ED.open)ED.open.add(e);renderEditorBody();},
   exToggle:el=>{const{e}=setFrom(el);ED.open=ED.open||new Set();if(ED.open.has(e))ED.open.delete(e);else ED.open.add(e);renderEditorBody();},
   dockMin:()=>{const d=$('#edDock'),h0=d?d.offsetHeight:0;ui.dockMin=!ui.dockMin;saveUi();renderDock();if(d)moH(d,h0,'#dockSet');},
-  dockType:el=>dockType(el.dataset.f),
+  dockType:el=>{const f=el.dataset.f,t=dockTarget();if(t&&kpOn()&&(f==='w'||f==='r')){const e=ED.w.exercises[t.ei],s=e.sets[t.si];ED.cur={s,pick:true};KP={s,f,buf:kpVal(s,f),fresh:true};renderEditorBody();setTimeout(kpReveal,60);return;}dockType(f);},
+  kpOpen:el=>{const{e,s}=setFrom(el);if(!s)return;ED.cur={s,pick:true};if(ED.open)ED.open.add(e);KP={s,f:el.dataset.f,buf:kpVal(s,el.dataset.f),fresh:true};renderEditorBody();setTimeout(kpReveal,60);},
+  kpField:el=>{if(!KP)return;KP.f=el.dataset.f;KP.buf=kpVal(KP.s,KP.f);KP.fresh=true;renderEditorBody();},
+  kpKey:el=>kpKey(el.dataset.k),
+  kpClose:()=>{KP=null;renderEditorBody();},
+  kpStep:async()=>{const t=dockTarget();if(!t)return;const ex=getEx(ED.w.exercises[t.ei].exId),st=kpStepInfo(ex);
+    if(!st.key){toast(st.fixed);return;}
+    const v=await menuSheet(`± Step for ${st.what}`,st.opts.map(x=>({v:String(x),label:`${x} ${U.w()}`,on:x===st.v})));if(v==null||!ED)return;
+    S.settings[st.key]=+v;touch('settings');renderDock();toast(`± Step: ${v} ${U.w()} for all ${st.what}`);},
   dockGo:()=>dockScroll(true),
   addSet:el=>{const{e}=setFrom(el);const last=e.sets[e.sets.length-1];
     let t=last?{w:last.w??last.target?.w,r:last.r??last.target?.r,t:last.t??last.target?.t,d:last.d??last.target?.d}:null;
@@ -4339,6 +4373,11 @@ const ACT={
   restAdj:el=>{if(!REST)return;const d=+el.dataset.d;REST.end+=d*1000;restNative(REST.end);REST.total=Math.max(REST.total+d,1);restTick();},
   restSkip:()=>{REST=null;stopRestTick();renderRest();renderMini();},
 };
+/* v184.2: the keypad closes when the set is completed, the workout is minimised or finished; − / + keep it in step */
+{const _t=ACT.tick,_st=ACT.step,_m=ACT.edMin,_f=ACT.edFinish;
+ ACT.tick=(el,ev)=>{KP=null;return _t(el,ev);};
+ ACT.step=(el,ev)=>{const r=_st(el,ev);if(KP){KP.buf=kpVal(KP.s,KP.f);KP.fresh=true;renderDock();}return r;};
+ ACT.edMin=()=>{KP=null;return _m();};ACT.edFinish=()=>{KP=null;return _f();};}
 document.addEventListener('click',e=>{const el=e.target.closest('[data-act]');if(!el||el.disabled)return;const f=ACT[el.dataset.act];if(f){e.preventDefault();f(el,e);}});
 document.addEventListener('keydown',e=>{
   if(e.key==='Escape'&&TR){endTour();return;}
@@ -4401,9 +4440,46 @@ document.addEventListener('pointerup',e=>{if(e.pointerType!=='touch')xlpCancel()
 /* the tap that ends a long press must not open the exercise page */
 document.addEventListener('click',e=>{if(XLP_FIRED&&e.target.closest('#edBody .exb-h')){e.preventDefault();e.stopPropagation();XLP_FIRED=0;}},true);
 document.addEventListener('contextmenu',e=>{if(e.target.closest('#edBody .exb-h'))e.preventDefault();});
+/* v184.2 prototype: in-app keypad in the dock instead of the phone keyboard (Settings → Workout → Typing numbers) */
+let KP=null;
+function kpOn(){return S.settings.kpad!==false;}
+/* keep the set being typed visible between the header and the keypad */
+function kpReveal(){if(!KP||!ED)return;const fd=dockFind(KP.s);if(!fd)return;const row=document.querySelector(`#edBody .set[data-ei="${fd.ei}"][data-si="${fd.si}"]`),eb=$('#edBody'),dk=$('#edDock'),tp=document.querySelector('#editor .ed-top');if(!row||!eb||!dk)return;
+  const r=row.getBoundingClientRect(),lo=dk.getBoundingClientRect().top-10,hi=(tp?tp.getBoundingClientRect().bottom:0)+8;if(r.bottom>lo)eb.scrollTop+=r.bottom-lo;else if(r.top<hi)eb.scrollTop-=hi-r.top;}
+function kpVal(s,f){const v=s[f];return v==null?'':f==='w'?String(wInv(v)):String(v);}
+/* mirrors exactly what the − / + buttons use (ACT.step), so the label never promises a different step */
+function kpStepInfo(ex){const lb=isLb(),eq=ex.equip,own=eq==='Dumbbell'||eq==='Kettlebell'||eq==='Machine'||eq==='Cable';
+  if(own){const v=Math.round(wv(loadStep(ex))*100)/100;if(isPlateEx(ex))return{v,key:null,fixed:'This step comes from your plates (Bar weight menu)'};
+    return eq==='Dumbbell'||eq==='Kettlebell'?{v,key:'dbStep',opts:lb?[2.5,5,10]:[1,2,2.5],what:'dumbbell and kettlebell exercises'}:{v,key:'mcStep',opts:lb?[5,10,15]:[2.5,5,10],what:'machine and cable exercises'};}
+  if(lb)return{v:5,key:null,fixed:'In lb, barbell and other exercises step by 5 lb'};
+  return{v:+S.settings.wstep||2.5,key:'wstep',opts:[1,1.25,2,2.5],what:'barbell and other exercises'};}
+function kpHtml(t,e,s,ex,k,sub,steps){const fs=k==='wr'?['w','r']:['r'];if(!fs.includes(KP.f)){KP.f=fs[0];KP.buf=kpVal(s,KP.f);KP.fresh=true;}
+  const lab=f=>f==='w'?U.w():'reps';
+  const fields=fs.map(f=>`<button class="kp-f${f===KP.f?' on':''}" data-act="kpField" data-f="${f}" aria-pressed="${f===KP.f}"><small>${lab(f)}</small><b class="num">${esc((f===KP.f?KP.buf:kpVal(s,f))||'–')}${f===KP.f?'<i class="kp-caret" aria-hidden="true"></i>':''}</b></button>`).join('');
+  const keys=['7','8','9','4','5','6','1','2','3',KP.f==='w'?'.':'','0','⌫'].map(x=>x?`<button data-act="kpKey" data-k="${x}" aria-label="${x==='⌫'?'Delete':x==='.'?'Decimal point':x}">${x}</button>`:'<span></span>').join('');
+  const st=KP.f==='w'?kpStepInfo(ex):null;
+  const pm=steps?`<div class="kp-pm"><button data-act="step" data-f="${KP.f}" data-d="-1" aria-label="Less ${lab(KP.f)}">−</button><button data-act="step" data-f="${KP.f}" data-d="1" aria-label="More ${lab(KP.f)}">+</button></div>`
+    +(st?`<button class="kp-step" data-act="kpStep" aria-label="Plus minus step ${nf(st.v,2)} ${U.w()}, change">± Step: <b>${nf(st.v,2)} ${esc(U.w())}</b></button>`:`<div class="kp-step kp-step-r">± Step: <b>1 rep</b></div>`):'';
+  return`<div class="dock step kp" data-ei="${t.ei}" data-si="${t.si}">
+    <div class="dk-h"><button class="dk-name" data-act="dockGo"><b>${esc(exName(ex))}</b><small>${esc(sub)}</small></button></div>
+    <div class="kp-fields">${fields}</div>
+    <div class="kp-grid"><div class="kp-keys">${keys}</div><div class="kp-side">${pm}<button class="kp-close" data-act="kpClose">Hide keypad</button><button class="dk-done kp-done" data-act="tick">${s.done?'Mark not done':'✓ Done'}</button></div></div></div>`;}
+function kpKey(k){if(!KP||!ED)return;let b=KP.fresh?'':KP.buf;const w=KP.f==='w';
+  if(k==='⌫')b=(KP.fresh?KP.buf:b).slice(0,-1);
+  else if(k==='.'){if(!w||b.includes('.'))return;b=(b||'0')+'.';}
+  else if(/^[0-9]$/.test(k)){if(b==='0')b='';if(w?(b.includes('.')?b.split('.')[1].length>=2:b.length>=4):b.length>=3)return;b+=k;}
+  else return;
+  KP.buf=b;KP.fresh=false;const s=KP.s,f=KP.f;let v=b===''||b==='.'?null:w?wIn(b):parseNum(b);if(v!=null&&!w)v=Math.round(v);
+  if(v==null||isNaN(v)||v<0)delete s[f];else s[f]=v;delete s.af;
+  const fd=dockFind(s);if(fd&&s.done&&!hasData(getEx(ED.w.exercises[fd.ei].exId).kind,s))s.done=false;
+  edChanged();renderEditorBody();}
+/* a physical keyboard (laptop) types into the keypad too */
+document.addEventListener('keydown',e=>{if(!KP||!ED||$('#editor').hidden||sheets.length)return;const t=e.target;if(t&&t.matches&&t.matches('input:not([readonly]),textarea,select'))return;
+  let k=null;if(/^[0-9]$/.test(e.key))k=e.key;else if(e.key==='.'||e.key===',')k='.';else if(e.key==='Backspace')k='⌫';else if(e.key==='Escape'||e.key==='Enter'){e.preventDefault();ACT.kpClose();return;}
+  if(k){e.preventDefault();kpKey(k);}});
 /* v184: tapping a value in a set row edits it in place. The set becomes the dock's set; the dock steps aside while the keyboard is up */
 let ROW_ED_T=null;
-document.addEventListener('focusin',e=>{const i=e.target.closest&&e.target.closest('#edBody .set .si');if(!i||!ED||ED.mode!=='live')return;const row=i.closest('.set');if(!row||row.dataset.si==null)return;
+document.addEventListener('focusin',e=>{const i=e.target.closest&&e.target.closest('#edBody .set .si');if(!i||!ED||ED.mode!=='live'||i.readOnly)return;const row=i.closest('.set');if(!row||row.dataset.si==null)return;
   const{e:ex,s}=setFrom(row);if(!s)return;clearTimeout(ROW_ED_T);ED.cur={s,pick:true};if(ED.open)ED.open.add(ex);
   $$('#edBody .set.cur').forEach(r=>{if(r!==row)r.classList.remove('cur');});row.classList.add('cur');
   document.body.classList.add('row-edit');try{renderDock();}catch(_){}try{i.select();}catch(_){}
@@ -5769,7 +5845,7 @@ function setNHint(sn){if(!sn||MOT_OFF())return;const tn=[...sn.childNodes].find(
   setTimeout(step,250);}
 function tipOnRest(){setTimeout(()=>showTip('rest',document.querySelector('#restBar [data-act="restAdj"][data-d="15"]'),'<b>Tip:</b> need more or less rest? Tap +15 or −15.'),600);}
 /* ---------- what's new (once per app version) ---------- */
-const APP_VER=184.1;
+const APP_VER=184.2;
 /* What's new pops up only when this list changes (WN_VER), never just because the app updated. Always available in Settings. */
 const WN_VER=3;
 const WHATS_NEW=[['A new look','A dark, glassy design over a real gym photo. Pick Loft or Racks in Settings → Look.'],
