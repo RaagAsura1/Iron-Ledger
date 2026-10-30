@@ -714,6 +714,11 @@ html:root[data-skin="iron"] .set.done .si,html:root[data-skin="iron"] .set.done 
 .ay-pick{display:grid;grid-template-columns:1fr 1fr;gap:10px}.ay-opt{display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 8px 12px;border-radius:14px;border:1.5px solid var(--line);background:var(--surface2);color:var(--muted);font-size:1rem;font-weight:600}
 .ay-opt svg{width:70px;height:124px}.ay-opt[aria-pressed="true"]{border-color:var(--accent);color:var(--accent);background:color-mix(in srgb,var(--accent) 10%,var(--surface2))}.ay-opt span{color:var(--ink)}
 .mo-goal{display:flex;justify-content:space-between;align-items:center;gap:10px;width:100%;margin:0 0 12px;padding:10px 12px;border-radius:12px;border:0;background:var(--surface2);color:var(--muted);font-size:0.8824rem;text-align:left}.mo-goal b{color:var(--ink);font-weight:600}.mo-gc{color:var(--accent);font-weight:600;flex:none}
+.prx{margin:0 0 12px;padding:8px 12px;border-radius:14px;background:color-mix(in srgb,var(--pr,var(--accent)) 12%,var(--surface2))}
+.prx-r{display:flex;gap:10px;align-items:flex-start;padding:5px 0}.prx-r+.prx-r{border-top:1px solid color-mix(in srgb,var(--ink) 8%,transparent)}
+.prx-r>svg{color:var(--pr,var(--accent));flex:none;width:18px;height:18px;margin-top:2px}.prx-r>div{min-width:0;flex:1;display:flex;flex-direction:column;gap:2px}
+.prx-n{font-weight:650;font-size:0.9412rem;overflow-wrap:anywhere}.prx-i{font-size:0.8824rem;color:var(--muted);line-height:1.35}.prx-i b{color:var(--ink);font-weight:650}
+.prx-i em{font-style:normal;font-weight:650;color:var(--good);white-space:nowrap}.prx-i em.prx-f{color:var(--pr)}.prx-more{margin:6px 0 2px;font-size:0.8235rem;color:var(--muted)}
 .ms-box{margin:0 0 12px;padding:10px 12px;border-radius:14px;background:color-mix(in srgb,var(--pr,var(--accent)) 12%,var(--surface2))}.ms-row{display:flex;gap:10px;align-items:center;padding:4px 0;font-weight:600;font-size:0.9412rem}.ms-row svg{color:var(--pr,var(--accent));flex:none}
 .m-recap{background:none;border:0;padding:0;color:var(--accent);font:inherit;font-weight:600}
 .rc-stats{grid-template-columns:repeat(3,1fr)!important}.rc-stats small{display:block;font-size:0.7059rem;font-weight:600;margin-top:2px}.rc-stats small.up{color:var(--good)}.rc-stats small.dn{color:var(--muted)}
@@ -1754,7 +1759,7 @@ html:root #editor .set .si.kp-on{background:color-mix(in srgb,var(--accent) 22%,
 .kp-step{min-height:44px;border:1px dashed color-mix(in srgb,var(--ink) 28%,transparent);border-radius:10px;background:none;color:var(--muted);font:inherit;font-size:0.8235rem;line-height:1.2;text-align:center;padding:4px 6px;display:flex;align-items:center;justify-content:center;gap:4px;flex-wrap:wrap}
 .kp-step b{color:var(--ink);white-space:nowrap}
 .kp-step-r{border-style:solid;border-color:transparent}
-.kp-close{min-height:44px;border:0;border-radius:10px;background:var(--surface2);color:var(--ink);font:inherit;font-size:0.8824rem;font-weight:600;touch-action:manipulation}
+.kp-close{display:flex;align-items:center;justify-content:center;text-align:center;min-height:44px;border:0;border-radius:10px;background:var(--surface2);color:var(--ink);font:inherit;font-size:0.8824rem;font-weight:600;touch-action:manipulation}
 .dock.kp .kp-done{margin-top:auto;min-height:48px;width:100%}
 
 /* v184.4: other routines under Start */
@@ -1764,6 +1769,19 @@ html:root #editor .set .si.kp-on{background:color-mix(in srgb,var(--accent) 22%,
 .g-alt-b span{min-width:0;overflow:hidden;text-overflow:ellipsis}
 .g-alt-all{border-color:transparent;background:none;color:var(--accent);padding:0 6px}
 .g-alt-b::before,.g-alt-all::before{content:'';position:absolute;left:0;right:0;top:50%;height:44px;transform:translateY(-50%)}
+
+/* v184.9: Home muscle-map preview (same data and drawing as Progress) */
+.g-mmap{display:flex;align-items:center;gap:10px;width:100%;margin-top:18px;cursor:pointer;color:var(--ink)}
+html:root .g-card.g-mmap{background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 18%,transparent),color-mix(in srgb,var(--accent) 4%,transparent))!important;border:1px solid color-mix(in srgb,var(--accent) 40%,transparent)!important}
+.g-mm-fig{flex:0 0 58%;max-width:240px;min-width:0;margin:-6px 0 -6px -6px}
+.g-mm-fig svg{display:block;width:100%;height:auto;pointer-events:none}
+/* v185.2: Front/Back labels are HTML, one fixed size wherever this map appears (Home, Progress, full map) */
+.hm-box{position:relative;min-width:0;padding-bottom:4px}.hm-box svg.heat{display:block;width:100%;height:auto}
+.hm-lb{position:absolute;transform:translateX(-50%);font:500 0.6875rem/1 var(--fb);color:var(--muted);pointer-events:none;white-space:nowrap}
+.g-mm-t{display:flex;flex-direction:column;gap:3px;min-width:0;flex:1}
+.g-mm-t b{font-size:1.1765rem;font-weight:700;letter-spacing:-.01em}
+.g-mm-t em{font-style:normal;color:var(--muted);font-size:0.8824rem}
+.g-mm-go{margin-top:6px;color:var(--accent);font-weight:650;font-size:0.9412rem}
 </style>
 
 <header class="top"><div class="brand"><svg class="brand-logo" viewBox="90 30 200 200" width="30" height="30" role="img" aria-label="Iron Ledger logo"><rect x="90" y="30" width="200" height="200" rx="44" fill="#1C1F24"/><rect x="100" y="40" width="180" height="180" rx="36" fill="none" stroke="#3A404A" stroke-width="2"/><line x1="112" y1="100" x2="268" y2="100" stroke="#AEB6BF" stroke-width="6" stroke-linecap="round"/><rect x="136" y="58" width="16" height="84" rx="4" fill="#D5DAE0"/><rect x="156" y="70" width="11" height="60" rx="3" fill="#AEB6BF"/><rect x="228" y="58" width="16" height="84" rx="4" fill="#D5DAE0"/><rect x="213" y="70" width="11" height="60" rx="3" fill="#AEB6BF"/><rect x="128" y="164" width="124" height="6" rx="3" fill="#E8622C"/><rect x="128" y="179" width="92" height="6" rx="3" fill="#6B7480"/><rect x="128" y="194" width="60" height="6" rx="3" fill="#6B7480"/></svg><span class="brand-name">Iron Ledger</span></div><div class="top-in"><h1 id="topTitle">Workout</h1><div class="top-act" id="topAct"></div></div><div class="mode-in" id="modeBar"></div></header>
@@ -2112,7 +2130,7 @@ function recs(){
       for(const key of keys){
         if(had&&at[key]!=null&&sess[key]>pb[key]+1e-9){
           const t=tags[w.id][ei]||(tags[w.id][ei]={});(t[at[key]]||(t[at[key]]=[])).push(key);cnt++;
-          prList.push({wid:w.id,date:w.start,exId:e.exId,key,value:sess[key]});
+          prList.push({wid:w.id,date:w.start,exId:e.exId,key,value:sess[key],ei,prev:pb[key]});
         }
       }
       for(const key of keys){if(sess[key]>b[key])b[key]=sess[key];if(sess[key]>pb[key])pb[key]=sess[key];}
@@ -2444,7 +2462,8 @@ function vWorkoutGlass(){
   h+=bkNudgeHtml();
   h+=weekH;
   /* v181: the muscle map lives on Progress; Home keeps a short link to the same full map */
-  h+=`<button class="g-card g-mlink" data-act="muscleInfo" data-r="" aria-label="Open the full muscle map"><span class="g-ml-t"><small class="g-eye">Where you worked</small><b>Muscle map</b><em>Sets per muscle, last 7 days · also on Progress</em></span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button>`;
+  {const RS=regionStats(7),tr=Object.keys(REGION_LABEL).filter(r=>(RS.sets[r]||0)>0);
+   h+=`<div class="g-card g-mmap" data-act="muscleInfo" data-r="" role="button" tabindex="0" aria-label="Open the full muscle map"><div class="g-mm-fig">${heatSvg(RS.sets,RS.by)}</div><div class="g-mm-t"><small class="g-eye">Where you worked</small><b>Muscle map</b><em>${tr.length?`${plN(tr.length,'muscle')} trained · last 7 days`:'Fills in as you train'}</em><span class="g-mm-go">Open map ›</span></div></div>`;}
   const MR=S.routines.filter(r=>(r.mode||'gym')===m);
   h+=`<div class="g-sec"><div><small class="g-eye">Your plans</small><h2 class="g-h2">Routines</h2></div><button class="btn sm" data-act="newRoutine">+ New</button></div>`;
   h+=MR.length?`<section class="i-list g-card g-routines">${MR.map(r=>{const last=lastDoneRoutine(r.id);return`<button class="i-row" data-act="routine" data-id="${esc(r.id)}"><i class="i-ico">${esc((r.name||'?').trim().charAt(0).toUpperCase())}</i><span class="i-rt"><b>${esc(r.name)}</b><small>${r.exercises.length} exercise${r.exercises.length===1?'':'s'} · ${last?esc(relDay(last)):'not done yet'}</small></span></button>`;}).join('')}</section>`
@@ -2496,7 +2515,7 @@ function histOpen(mk){const o=ui.histOpen;if(o&&mk in o)return!!o[mk];return mk=
 function histReveal(w){const o=ui.histOpen||(ui.histOpen={});o[monthStart(w.start)]=true;if(!inCurMode(w,histAllOn())){ui.histAll=true;toast('Showing all modes so you can see this workout');}}
 function vHistory(){
   const cal=`<div class="ccard cal-card cal-host">${calHtml()}</div>`;
-  if(!S.workouts.length)return{title:'History',html:cal+emptyState('No workouts yet','Finished workouts show up here with duration, volume and personal records.',true)};
+  if(!S.workouts.length)return{title:'History',html:cal+emptyState('Your workouts appear here','Finish a workout and it shows here with time, volume and records. Tap a past day above to log an earlier one.',true)};
   const r=recs();let h=cal;
   if(S.workouts.some(w=>w.sample))h+=`<div class="banner"><span>Example workouts are included.</span><button class="btn sm" data-act="clearSample">Remove examples</button></div>`;
   const MN=esc(MODE_NAME[curMode()]);h+=`<div class="modefilter">${histAllOn()?'Showing workouts from <b>all modes</b>':`Showing <b>${MN}</b> workouts only`} · <button data-act="histAll">${histAllOn()?'Only '+MN:'Show all modes'}</button></div>`;
@@ -2582,7 +2601,7 @@ function liftEdit(){const draw=()=>`<div class="i-list">${(S.settings[LK()]||[])
 function vProgress(){
   if(curMode()==='cardio')return vProgressCardio();
   if(curMode()==='cali')return vProgressCali();
-  if(!S.workouts.some(w=>inCurMode(w)))return{title:'Progress',html:emptyState('Nothing to chart yet','Log a few workouts and your weekly volume, muscle split and PRs appear here.',true)};
+  if(!S.workouts.some(w=>inCurMode(w)))return{title:'Progress',html:emptyState('Progress starts with your first workout','After two sessions of a lift you’ll see its strength trend here. Records appear as you beat them.',true)+`<div class="g-sec"><div><small class="g-eye">Where you worked</small><h2 class="g-h2">Muscles</h2></div><button class="i-link" data-act="muscleInfo" data-r="">Full map</button></div><div class="stack">${heatCard()}</div>`};
   const r=recs(),now=Date.now(),ws=weekStart(now),d30=now-30*DAY;
   const MW=S.workouts.filter(w=>inCurMode(w)),WID=new Set(MW.map(w=>w.id));const last30=MW.filter(w=>w.start>=d30);
   const avg=last30.length?last30.reduce((a,w)=>a+(w.end-w.start),0)/last30.length:0;
@@ -2756,7 +2775,7 @@ async function pickKmGoal(){const cur=+S.settings.kmGoal||15;const opts=[5,10,15
 /* Cardio Progress: distance, time, pace trend, best efforts, sport split */
 function vProgressCardio(){
   const all=cSessions();
-  if(!all.length)return{title:'Progress',html:emptyState('Nothing to chart yet','Log a run, ride or row and your distance, pace and best efforts appear here.',true)};
+  if(!all.length)return{title:'Progress',html:emptyState('Log your first run, ride or row','Distance, pace and your best efforts appear here.',true)+`<div class="g-sec"><div><small class="g-eye">Where you worked</small><h2 class="g-h2">Muscles</h2></div><button class="i-link" data-act="muscleInfo" data-r="">Full map</button></div><div class="stack">${heatCard()}</div>`};
   const P=curPeriod(),N=P[2],u=U.d();
   const sports=[...new Set(all.map(x=>x.exId))].filter(id=>all.some(x=>x.exId===id&&x.d>0));
   const sp=sports.includes(ui.cSport)?ui.cSport:(cMainSport(all.filter(x=>x.d>0))||sports[0]);
@@ -2820,7 +2839,7 @@ function caliSess(){const out=[];S.workouts.forEach(w=>{if(!inCurMode(w))return;
 const caliVal=(k,v)=>k==='r'?plN(v,'rep'):fmtDur(v);
 function vProgressCali(){
   const all=caliSess();
-  if(!all.length)return{title:'Progress',html:emptyState('Nothing to chart yet','Log a few calisthenics sessions and your reps, holds and next skills appear here.',true)};
+  if(!all.length)return{title:'Progress',html:emptyState('Progress starts with your first session','After two sessions of an exercise you’ll see your reps and holds grow, plus your next skills.',true)+`<div class="g-sec"><div><small class="g-eye">Where you worked</small><h2 class="g-h2">Muscles</h2></div><button class="i-link" data-act="muscleInfo" data-r="">Full map</button></div><div class="stack">${heatCard()}</div>`};
   const P=curPeriod(),N=P[2],now=Date.now(),since=now-N*7*DAY,ws=weekStart(now);
   const freq={};all.filter(x=>x.start>=now-16*7*DAY).forEach(x=>freq[x.id]=(freq[x.id]||0)+1);
   const ids=Object.keys(freq).sort((a,b)=>freq[b]-freq[a]);const reps=ids.filter(id=>getEx(id).kind==='r'),holds=ids.filter(id=>getEx(id).kind==='t');
@@ -2949,11 +2968,24 @@ async function sharePngCanvas(c,name,title){
   if(dl){try{await dl.save({filename:name,data:blob});toast('Picture saved');return;}catch(e){if(e&&e.code==='declined')return;}}
   const url=c.toDataURL('image/png');openSheet({title:'Share picture',body:`<p class="msg">Press and hold the picture to save or share it.</p><img src="${url}" alt="Workout summary" style="width:100%;border-radius:14px">`});
 }
+/* v185.3: the records a finished workout set, by exercise, with the gain over the previous best (from recs(), unchanged rules) */
+const PRX_ORDER=['w','e1','r','t','d','vol'];
+function prGainTxt(key,d){const u=x=>'+'+x;let t='';
+  if(key==='e1')t=u(nf(wv(d),1))+' '+U.w();else if(key==='w')t=u(wf(d))+' '+U.w();else if(key==='vol')t=u(nf(wv(d),0))+' '+U.w();
+  else if(key==='r')t=u(plN(Math.round(d),'rep'));else if(key==='t')t=u(fmtDur(d));else if(key==='d')t=u(dff(d))+' '+U.d();
+  return/[1-9]/.test(t.replace(/\s.*$/,''))?t:'';}
+function prListHtml(w,r){
+  const L=r.prList.filter(p=>p.wid===w.id);if(!L.length)return'';const by=new Map();
+  L.forEach(p=>{if(!by.has(p.ei))by.set(p.ei,[]);by.get(p.ei).push(p);});
+  const ex=[...by.keys()].sort((a,b)=>a-b),MAX=5,more=ex.length-MAX;
+  return`<div class="prx" role="list" aria-label="New records">${ex.slice(0,MAX).map(ei=>{const ps=by.get(ei).sort((a,b)=>PRX_ORDER.indexOf(a.key)-PRX_ORDER.indexOf(b.key));
+    return`<div class="prx-r" role="listitem">${I.trophy}<div><b class="prx-n">${esc(exName(getEx(ps[0].exId)))}</b>${ps.map(p=>{const first=!(p.prev>1e-9),g=first?'':prGainTxt(p.key,p.value-p.prev);
+      return`<span class="prx-i">${esc(REC_LABEL[p.key])} <b class="num">${esc(recFmt(p.key,p.value))}</b>${first?' <em class="prx-f">first record</em>':g?` <em>${esc(g)}</em>`:''}</span>`;}).join('')}</div></div>`;}).join('')}${more>0?`<p class="prx-more">${plN(more,'more exercise')} with records in the list below</p>`:''}</div>`;}
 function showWorkout(id,{finished=false,left=0}={}){
   const w=S.workouts.find(x=>x.id===id);if(!w)return;
   const r=recs(),tags=r.tags[w.id]||{},pr=r.prCount[w.id]||0;
   const stored=finished?flushLocal():true;
-  let b=`${finished&&!stored?`<p class="msg st-msg"><b>Workout finished, but not stored on this device.</b> Save a backup file now (Settings → Backup).</p>`:''}${finished&&stored?`<p class="msg"><b>Workout saved: ${plN(workoutSetCount(w),'set')}.</b>${left?` ${plN(left,'unticked set')} ${left===1?'was':'were'} not saved.`:''} ${pr?`You set ${pr} new record${pr>1?'s':''}.`:'Nice work.'} Tap Done to see it in History.</p>`:''}${(w.ms||[]).length?`<div class="ms-box">${w.ms.map(m=>`<div class="ms-row">${I.trophy}<span>${esc(m.t)}</span></div>`).join('')}</div>`:''}
+  let b=`${finished&&!stored?`<p class="msg st-msg"><b>Workout finished, but not stored on this device.</b> Save a backup file now (Settings → Backup).</p>`:''}${finished&&stored?`<p class="msg"><b>Workout saved: ${plN(workoutSetCount(w),'set')}.</b>${left?` ${plN(left,'unticked set')} ${left===1?'was':'were'} not saved.`:''} ${pr?`You set ${pr} new record${pr>1?'s':''}:`:'Nice work.'} Tap Done to see it in History.</p>${pr?prListHtml(w,r):''}`:''}${(w.ms||[]).length?`<div class="ms-box">${w.ms.map(m=>`<div class="ms-row">${I.trophy}<span>${esc(m.t)}</span></div>`).join('')}</div>`:''}
   <p class="muted" style="margin:0 0 10px">${esc(dfDay(w.start))}, ${esc(dfTime(w.start))}${w.sample?' · example':''}</p>
   ${w.route?'':isCardioWorkout(w)?cDetailStats(w):`<div class="wstats"><div><b class="num">${fmtMins(w.end-w.start)}</b><span>Time</span></div><div><b class="num">${fmtVol(workoutVolume(w))}</b><span>Volume</span></div><div><b class="num">${workoutSetCount(w)}</b><span>Sets</span></div><div><b class="num">${pr}</b><span>PRs</span></div></div>`}
   ${finished?vsLastHtml(w):''}${w.note?`<p class="exb-note">${esc(w.note)}</p>`:''}${w.route?routeBlock(w):''}`;
@@ -3316,7 +3348,7 @@ function renderDock(){const box=$('#dockSet');if(!box||!ED||ED.mode!=='live')ret
   const e=X[t.ei],s=e.sets[t.si],ex=getEx(e.exId),k=ex.kind,prev=prevSetsFor(e.exId,ED.w.start,ED.w.id),p=prevMatch(prev,e.sets,t.si),ph=liveSrc(e,t.si,prev);
   const val=f=>s[f]!=null?s[f]:ph[f];let n=0,lab='';e.sets.forEach((x,i)=>{if(x.type!=='w'&&x.type!=='d'&&x.type!=='f')n++;if(i===t.si)lab=x.type==='w'?'Warm-up':x.type==='d'?'Drop set':x.type==='f'?'To failure':'Set '+n;});
   const work=e.sets.filter(x=>!x.type||x.type==='n').length;const tg=s.target&&hasData(k,s.target)?fmtSet(k,s.target):'';
-  const af=isAf(s);const sub=[`${lab}${!s.type||s.type==='n'?' of '+work:''}`,af?'filled in from last time':p?'last '+fmtSet(k,p):'',tg&&(!p||fmtSet(k,p)!==tg)&&!overloadHint(e)?'target '+tg:''].filter(Boolean).join(' · ');
+  const af=isAf(s);const sub=[`${lab}${!s.type||s.type==='n'?' of '+work:''}`,af?'filled in for you':p?'last '+fmtSet(k,p):'',tg&&(!p||fmtSet(k,p)!==tg)&&!overloadHint(e)?'target '+tg:''].filter(Boolean).join(' · ');
   nativeStatus(exName(ex),sub);
   const steps=S.settings.steppers!==false;
   if(KP){if(KP.s!==s||!(k==='wr'||k==='r')||!kpOn())KP=null;else{box.innerHTML=kpHtml(t,e,s,ex,k,sub,steps);dockPad();return;}}
@@ -3512,13 +3544,13 @@ async function finishLive(){
   /* the options that make sense for these sets */
   const opts=[];
   if(C.T&&UN)opts.push({k:'ticked',l:`Save ${plN(C.T,'ticked set')}`,d:`Records only the ${plN(C.T,'set')} you ticked. The ${plN(UN,'unticked set')} ${UN===1?'is':'are'} left out of history, volume, records and the muscle map.`});
-  if(C.E&&C.F)opts.push({k:'entered',l:C.T?`Save ${C.T+C.E} ticked + entered`:`Save ${plN(C.E,'entered set')}`,d:`${C.T?'Also records':'Records'} the ${plN(C.E,'set')} you typed or changed without ticking. Values only filled in from last time are left out.`});
-  opts.push({k:'all',l:UN?`Save all ${plN(C.N,'set')}`:'Save workout',d:UN?`Records every set that has values as done${C.F?`, including ${plN(C.F,'set')} only filled in from last time`:''}.`:''});
+  if(C.E&&C.F)opts.push({k:'entered',l:C.T?`Save ${C.T+C.E} ticked + entered`:`Save ${plN(C.E,'entered set')}`,d:`${C.T?'Also records':'Records'} the ${plN(C.E,'set')} you typed or changed without ticking. Values only filled in for you are left out.`});
+  opts.push({k:'all',l:UN?`Save all ${plN(C.N,'set')}`:'Save workout',d:UN?`Records every set that has values as done${C.F?`, including ${plN(C.F,'set')} only filled in for you`:''}.`:''});
   const pri=!C.T&&!C.E?null:UN?finDefault(C):'all';
   const priO=opts.find(o=>o.k===pri),sec=opts.filter(o=>o!==priO);
   const show=cleanWorkout(w,FIN_KEEP[pri||'all']),n=workoutSetCount(show);
-  const split=UN?`<p class="msg fin-split"><b>${C.T} of ${plN(C.N,'set')} ticked.</b> Not ticked: ${[C.E?`${C.E} you entered`:'',C.F?`${C.F} faded (only filled in from last time)`:''].filter(Boolean).join(', ')}.</p>`:'';
-  const noTick=!C.T&&!C.E?`<p class="msg">None of the sets was ticked or changed. They only hold the values filled in from last time, so nothing is saved unless you choose to.</p>`:'';
+  const split=UN?`<p class="msg fin-split"><b>${C.T} of ${plN(C.N,'set')} ticked.</b> Not ticked: ${[C.E?`${C.E} you entered`:'',C.F?`${C.F} faded (filled in for you)`:''].filter(Boolean).join(', ')}.</p>`:'';
+  const noTick=!C.T&&!C.E?`<p class="msg">None of the sets was ticked or changed. They only hold the values filled in for you, so nothing is saved unless you choose to.</p>`:'';
   const sh=openSheet({title:'Finish workout?',body:`<div class="wstats"><div><b class="num" id="finT">${fmtMins(endAt-w.start)}</b><span>Time</span></div><div><b class="num">${fmtVol(workoutVolume(show))}</b><span>Volume</span></div><div><b class="num">${n}</b><span>Sets</span></div><div><b class="num">${show.exercises.length}</b><span>Exercises</span></div></div>
     ${UN?(()=>{const o=priO||opts.find(x=>x.k==='all');return`<p class="muted fin-for">Numbers above: if you ${esc(o.l.charAt(0).toLowerCase()+o.l.slice(1))}</p>`;})():''}${noTick||split}${priO&&priO.d?`<p class="muted fin-d">${esc(priO.d)}</p>`:''}
     ${C.empty?`<p class="muted" style="margin:4px 0">${plN(C.empty,'empty set')} will be dropped.</p>`:''}${endPick}
@@ -4397,7 +4429,7 @@ document.addEventListener('click',e=>{const el=e.target.closest('[data-act]');if
 document.addEventListener('keydown',e=>{
   if(e.key==='Escape'&&TR){endTour();return;}
   if(e.key==='Escape'&&sheets.length){sheets[sheets.length-1].close();return;}
-  if((e.key==='Enter'||e.key===' ')&&e.target.matches('article[data-act]')){e.preventDefault();e.target.click();}
+  if((e.key==='Enter'||e.key===' ')&&e.target.matches('article[data-act],div[role="button"][data-act]')){e.preventDefault();e.target.click();}
   if(e.key==='Enter'&&e.target.classList.contains('si')){e.preventDefault();const all=$$('#edBody .si');const i=all.indexOf(e.target);if(all[i+1])all[i+1].focus();else e.target.blur();}
 });
 document.addEventListener('input',e=>{
@@ -4488,6 +4520,8 @@ function kpKey(k){if(!KP||!ED)return;let b=KP.fresh?'':KP.buf;const w=KP.f==='w'
   if(v==null||isNaN(v)||v<0)delete s[f];else s[f]=v;delete s.af;
   const fd=dockFind(s);if(fd&&s.done&&!hasData(getEx(ED.w.exercises[fd.ei].exId).kind,s))s.done=false;
   edChanged();renderEditorBody();}
+/* v184.8: tapping an empty spot of the workout screen hides the keypad */
+document.addEventListener('click',e=>{if(!KP||!ED)return;const t=e.target;if(!t.closest||!t.closest('#editor')||t.closest('#dockSet')||t.closest('[data-act],button,input,textarea,select,a,label,.sheet-back,.tour'))return;KP=null;renderEditorBody();});
 /* a physical keyboard (laptop) types into the keypad too */
 document.addEventListener('keydown',e=>{if(!KP||!ED||$('#editor').hidden||sheets.length)return;const t=e.target;if(t&&t.matches&&t.matches('input:not([readonly]),textarea,select'))return;
   let k=null;if(/^[0-9]$/.test(e.key))k=e.key;else if(e.key==='.'||e.key===',')k='.';else if(e.key==='Backspace')k='⌫';else if(e.key==='Escape'||e.key==='Enter'){e.preventDefault();ACT.kpClose();return;}
@@ -4780,7 +4814,7 @@ function heatSvg(sets,by){
   const lvl=r=>heatLevel(sets[r]||0);
   let g=hmBody().map(p=>`<polygon points="${p}"/>`).join('');
   Object.entries(hmMus()).forEach(([r,ps])=>{const t=`${REGION_LABEL[r]}: ${by?loadTxt(by[r]):musU(sets[r]||0)}`;ps.forEach(p=>{g+=`<polygon points="${p}" data-act="muscleInfo" data-r="${r}" data-v="${+p.split(',')[0]>=640?'b':'f'}" class="lv${lvl(r)}" style="fill:${heatCols()[lvl(r)]}"><title>${t}</title></polygon>`;});});
-  return`<svg class="heat" viewBox="0 0 1287 1222" role="img" aria-label="Muscles trained in the last 7 days, front and back"><g filter="url(#hmShade)"><g style="fill:var(--hm-body)">${g}</g></g><text x="320" y="1168" text-anchor="middle" style="fill:var(--muted);font:500 40px var(--fb)">Front</text><text x="970" y="1168" text-anchor="middle" style="fill:var(--muted);font:500 40px var(--fb)">Back</text></svg>`;
+  return`<div class="hm-box"><svg class="heat" viewBox="0 0 1287 1222" role="img" aria-label="Muscles trained in the last 7 days, front and back"><g filter="url(#hmShade)"><g style="fill:var(--hm-body)">${g}</g></g></svg>${(()=>{const fy=Math.max(...hmBody().flatMap(p=>p.trim().split(/\s+/).map(q=>+q.split(',')[1]))),t=`top:calc(${(fy/12.22).toFixed(2)}% + 1px)`;return`<span class="hm-lb" style="left:${(hmCx()[0]/12.87).toFixed(2)}%;${t}">Front</span><span class="hm-lb" style="left:${(hmCx()[1]/12.87).toFixed(2)}%;${t}">Back</span>`;})()}</div>`;
 }
 function exMuscleHtml(ex){            // which muscles this exercise works, on the same figure
   const c=regionsFor(ex)||{};const ks=Object.keys(c).filter(k=>HEAT_MUS[k]);if(!ks.length)return'';
@@ -4788,10 +4822,14 @@ function exMuscleHtml(ex){            // which muscles this exercise works, on t
   let g=hmBody().map(p=>`<polygon points="${p}"/>`).join('');
   Object.entries(hmMus()).forEach(([r,ps])=>{const f=c[r]?cols[lv(c[r])]:cols[0];ps.forEach(p=>{g+=`<polygon points="${p}" style="fill:${f}"/>`;});});
   const main=ks.filter(k=>c[k]>=1).map(k=>REGION_LABEL[k]),also=ks.filter(k=>c[k]<1).sort((a,b)=>c[b]-c[a]).map(k=>REGION_LABEL[k]);
-  return`<div class="exm"><svg class="heat exm-fig" viewBox="0 0 1287 1222" role="img" aria-label="Muscles worked by ${esc(exName(ex))}"><g filter="url(#hmShade)"><g style="fill:var(--hm-body)">${g}</g></g><text x="320" y="1168" text-anchor="middle" style="fill:var(--muted);font:500 40px var(--fb)">Front</text><text x="970" y="1168" text-anchor="middle" style="fill:var(--muted);font:500 40px var(--fb)">Back</text></svg>
+  return`<div class="exm"><svg class="heat exm-fig" viewBox="0 0 1287 1222" role="img" aria-label="Muscles worked by ${esc(exName(ex))}"><g filter="url(#hmShade)"><g style="fill:var(--hm-body)">${g}</g></g><text x="${hmCx()[0]}" y="1168" text-anchor="middle" style="fill:var(--muted);font:500 40px var(--fb)">Front</text><text x="${hmCx()[1]}" y="1168" text-anchor="middle" style="fill:var(--muted);font:500 40px var(--fb)">Back</text></svg>
     <div class="exm-l">${main.length?`<p><i style="background:${cols[4]}"></i><span><b>Main</b>${esc(main.join(', '))}</span></p>`:''}${also.length?`<p><i style="background:${cols[2]}"></i><span><b>Also</b>${esc(also.join(', '))}</span></p>`:''}</div></div>`;
 }
 const videoUrl=ex=>'https://www.youtube.com/results?search_query='+encodeURIComponent(exName(ex).replace(/[()]/g,'')+' exercise proper form');
+/* v184.8: x-centre of the front and back figure, so "Front"/"Back" sit under them for both figures */
+let HM_CX=null;function hmCx(){const B=hmBody();if(HM_CX&&HM_CX.b===B)return HM_CX.c;const lo=[1e9,1e9],hi=[-1e9,-1e9];
+  B.forEach(p=>String(p).trim().split(/\s+/).forEach(q=>{const x=+q.split(',')[0];if(!isFinite(x))return;const k=x>=640?1:0;if(x<lo[k])lo[k]=x;if(x>hi[k])hi[k]=x;}));
+  const c=[0,1].map(k=>hi[k]>lo[k]?Math.round((lo[k]+hi[k])/2):[320,970][k]);HM_CX={b:B,c};return c;}
 function hmDefs(){if(document.getElementById('hmDefs'))return;const d=document.createElement('div');d.innerHTML=`<svg id="hmDefs" width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true"><defs>
 <filter id="hmShade" x="-4%" y="-4%" width="108%" height="110%" color-interpolation-filters="sRGB">
  <feGaussianBlur in="SourceAlpha" stdDeviation="9" result="bl"/>
@@ -4842,7 +4880,7 @@ function fullMuscleSvg(sets,sel,play){
     const on=r===sel,lv=heatLevel(sets[r]||0),fill=heatCols()[lv];
     const yy=p.split(' ').reduce((s,q)=>s+ +q.split(',')[1],0)/p.split(' ').length,dl=(.18+(1-yy/1222)*.75).toFixed(2);
     (on?top:dim).push(`<polygon points="${p}" data-mr="${r}" class="lv${sel&&!on?0:lv}" style="fill:${sel&&!on?'var(--hm-body)':fill};--d:${dl}s;${on?'stroke:var(--ink);stroke-width:12':''}"><title>${esc(REGION_LABEL[r])}</title></polygon>`);}));
-  return`<svg class="heat mx mxf${play?' play':''}" viewBox="0 0 1287 1222" role="img" aria-label="Front and back, tap a muscle"><rect class="mx-bg" x="0" y="0" width="1287" height="1222" fill="transparent"/><g filter="url(#hmShade)">${body}${dim.join('')}${top.join('')}</g><text x="320" y="1168" text-anchor="middle" style="fill:var(--muted);font:500 40px var(--fb)">Front</text><text x="970" y="1168" text-anchor="middle" style="fill:var(--muted);font:500 40px var(--fb)">Back</text></svg>`;
+  return`<svg class="heat mx mxf${play?' play':''}" viewBox="0 0 1287 1222" role="img" aria-label="Front and back, tap a muscle"><rect class="mx-bg" x="0" y="0" width="1287" height="1222" fill="transparent"/><g filter="url(#hmShade)">${body}${dim.join('')}${top.join('')}</g><text x="${hmCx()[0]}" y="1168" text-anchor="middle" style="fill:var(--muted);font:500 40px var(--fb)">Front</text><text x="${hmCx()[1]}" y="1168" text-anchor="middle" style="fill:var(--muted);font:500 40px var(--fb)">Back</text></svg>`;
 }
 function openMuscleSheet(r){
   const{sets,last,by}=regionStats(7);let sel=REGION_LABEL[r]?r:null;
@@ -5747,7 +5785,7 @@ const TOUR_A=[
 const TOUR_GO={sel:'[data-act="startEmpty"],[data-act="today"]',t:'Now try it',h:'Tap the highlighted button to start a workout. It’s only practice, nothing gets saved.',wait:1};
 const TOUR_B=[
  {t:'Your practice workout',h:'This is the workout screen. Here’s how logging works. It’s practice, so nothing is saved.',noBack:1},
- {sel:'#dockSet .dk-ctl',t:'Weight and reps',h:'Use the big <b>− / +</b> buttons, or tap a number to type it. Values filled in from last time look faded until you change or tick them.'},
+ {sel:'#dockSet .dk-ctl',t:'Weight and reps',h:'Use the big <b>− / +</b> buttons, or tap a number to type it. Values the app fills in for you (from last time or your routine) look faded until you change or tick them.'},
  {sel:'#dockSet .dk-done',t:'Tick it off',h:'Tap <b>✓ Done</b> when the set is finished. The rest timer starts by itself. Only ticked sets are saved unless you choose otherwise.'},
  {sel:'#editor .set.cur .set-n',t:'Set types',h:'Tap the <b>set number</b> for warm-up or drop sets. <b>Swipe a set right</b> = done, <b>left</b> = delete.'},
  {sel:'#editor [data-act="edAddEx"]',t:'Add exercises',h:'Pick from the library, or create your own.'},
@@ -5860,7 +5898,7 @@ function setNHint(sn){if(!sn||MOT_OFF())return;const tn=[...sn.childNodes].find(
   setTimeout(step,250);}
 function tipOnRest(){setTimeout(()=>showTip('rest',document.querySelector('#restBar [data-act="restAdj"][data-d="15"]'),'<b>Tip:</b> need more or less rest? Tap +15 or −15.'),600);}
 /* ---------- what's new (once per app version) ---------- */
-const APP_VER=184.6;
+const APP_VER=185.3;
 /* What's new pops up only when this list changes (WN_VER), never just because the app updated. Always available in Settings. */
 const WN_VER=3;
 const WHATS_NEW=[['A new look','A dark, glassy design over a real gym photo. Pick Loft or Racks in Settings → Look.'],
