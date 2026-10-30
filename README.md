@@ -14,6 +14,7 @@ Whether you lift weights, train with bodyweight exercises, follow CrossFit-style
 
 ## 💪 Features
 
+
 ### 🏋️ Comprehensive Workout Tracking
 
 Track different styles of training without needing separate apps.
