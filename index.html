@@ -1782,6 +1782,135 @@ html:root .g-card.g-mmap{background:linear-gradient(135deg,color-mix(in srgb,var
 .g-mm-t b{font-size:1.1765rem;font-weight:700;letter-spacing:-.01em}
 .g-mm-t em{font-style:normal;color:var(--muted);font-size:0.8824rem}
 .g-mm-go{margin-top:6px;color:var(--accent);font-weight:650;font-size:0.9412rem}
+
+/* v185.4: calm workout screen — slim tray, quiet coach tips */
+#dockSet .dock.slim{padding:8px 10px 10px!important}
+.dock.slim .dk-h{min-height:32px;gap:8px}
+.dock.slim .dk-name{position:relative}.dock.slim .dk-name::before{content:'';position:absolute;left:0;right:0;top:50%;height:44px;transform:translateY(-50%)}
+.dock.slim .dk-name{padding:0 4px;flex:1 1 auto}
+.dock.slim .dk-name b{font-size:0.8824rem;font-weight:600}
+.dock.slim .dk-pl{margin:0 0 0 auto;padding:4px 10px 4px 8px;max-width:56%;min-width:0;flex:0 1 auto}
+.dock.slim .dk-pl span:not(.cv){overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.dk-row{display:flex;gap:6px;margin-top:6px;align-items:stretch}
+.dock.slim .dk-ctl{margin:0;flex:1;min-width:0}
+.dock.slim .dk-f{height:40px;grid-template-columns:34px minmax(44px,1fr) 34px}
+.dock.slim .dk-pm{position:relative}.dock.slim .dk-pm::before{content:'';position:absolute;left:50%;top:50%;width:44px;height:44px;transform:translate(-50%,-50%)}
+.dock.slim .dk-v b{font-size:1.0588rem!important}.dock.slim .dk-v small{font-size:0.6471rem!important}
+.dock.slim .dk-f:not(:has(.dk-pm)){grid-template-columns:1fr}
+.dock.slim .dk-v{flex-direction:row;flex-wrap:nowrap;align-items:center;justify-content:center;gap:3px;white-space:nowrap;overflow:hidden}
+.dock.slim .dk-v small{transform:translateY(1px)}
+.dock.slim .dk-v b{padding-bottom:1px!important;line-height:1.1}
+.dock.slim .dk-pm{font-size:1.2rem;line-height:1}
+.dock.slim .dk-v b{font-size:1.1765rem}
+.dock.slim .dk-v small{margin:0;font-size:0.7059rem}
+.dk-ok{flex:none;width:50px;min-height:40px;border:0;border-radius:14px;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;touch-action:manipulation}
+.dk-ok:active{transform:scale(.96)}
+.dock.is-done .dk-ok{background:var(--surface2);color:var(--ink)}
+.dock.slim.tight .dk-ok{width:52px;min-height:44px;height:44px;border-radius:12px;flex:none}
+.dock.slim.tight .dk-h{min-height:44px}
+.dock.slim.tight .dk-name{flex:1 1 45%}.dock.slim.tight .dk-pl{max-width:40%;padding:4px 8px 4px 6px}.dock.slim.tight .dk-pl svg{display:none}
+.dock.slim .dk-sec{height:40px;padding:0 14px}
+.dock-end.slim .dk-row{margin:0;align-items:center}
+.dock-end.slim .dk-endt{flex:1;min-width:0;padding-left:6px;font-size:0.9412rem}
+.dock-end.slim .dk-done{margin:0;width:auto;flex:none;height:46px;padding:0 18px}
+.exb-tip{position:relative;flex:none;width:28px;height:28px;margin:0 2px 0 -2px;border:0;border-radius:50%;background:none;display:grid;place-items:center;align-self:center}
+.exb-tip::before{content:'';position:absolute;left:50%;top:50%;width:44px;height:44px;transform:translate(-50%,-50%)}
+.exb-tip i{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 22%,transparent)}
+.exb-tip.on i{box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 45%,transparent)}
+#editor .hint1{background:none!important;min-height:0!important;padding:2px 0 2px 2px!important;margin:0 0 6px!important;gap:8px;border-radius:0}
+#editor .hint1 .h1-t{font-size:0.8824rem!important;line-height:1.35}
+#editor .hint1 .h1-t b,#editor .hint1.multi .h1-t b{display:inline!important;margin:0 0 0 5px!important;font-size:0.8824rem!important;font-weight:600}
+#editor .hint1 .h1-dot{width:6px;height:6px}
+#editor .hint1 .h1-why{font-size:0.8235rem;padding:6px 4px;position:relative}
+#editor .hint1 .btn.sm{background:none;border:0;color:var(--accent);padding:6px 4px;min-height:0;height:auto;font-size:0.8824rem;font-weight:650}
+#editor .hint1 .hint-ok{font-size:0.7059rem}
+#editor .cb-line{background:none!important;padding:2px 0 2px 2px!important;margin:0 0 6px!important;font-size:0.8235rem!important;color:var(--muted)!important;border-radius:0}
+#editor .cb-line button{position:relative;font-size:0.8824rem;padding:6px 4px}
+#editor .cb-line button::before,#editor .hint1 .h1-why::before{content:'';position:absolute;left:50%;top:50%;width:max(100%,44px);height:44px;transform:translate(-50%,-50%)}
+.tip-x{animation:tipIn .18s ease-out}@keyframes tipIn{from{opacity:0;transform:translateY(-3px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.tip-x{animation:none}}
+/* v185.4: calmer Home/tab background photo — darker so cards and text read clearly */
+html:root[data-skin][data-bg="photo"] body::before,html:root[data-skin][data-bg="def"] body::before,html:root[data-skin]:not([data-bg]) body::before,html:root[data-skin][data-bg="racks"] body::before{background:radial-gradient(ellipse 115% 85% at 50% 42%,rgba(0,0,0,0) 45%,rgba(0,0,0,.3) 72%,rgba(0,0,0,.65) 100%),linear-gradient(180deg,rgba(9,10,13,.78) 0%,rgba(9,10,13,.7) 30%,rgba(9,10,13,.76) 62%,rgba(9,10,13,.93) 100%),var(--bgimg) center/cover no-repeat!important;filter:saturate(.75)}
+
+/* v185.6: rest timer = one slim light-green bar that empties from right to left */
+#edDock #restBar[hidden]{display:none!important}
+#restBar.rest{width:100%!important;left:auto!important;right:auto!important;transform:none!important;display:block!important;padding:0!important;margin:0 auto 6px!important;background:none!important;border:0!important;box-shadow:none!important;max-width:640px}
+.rest-strip{position:relative;display:flex;align-items:center;height:36px;border-radius:12px;overflow:hidden;background:color-mix(in srgb,var(--good) 14%,rgba(22,24,30,.88));-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px)}
+.rs-fill{position:absolute;left:0;top:0;bottom:0;width:100%;background:color-mix(in srgb,var(--good) 55%,transparent);transition:width 1s linear,background-color .6s ease;pointer-events:none}
+/* v185.9: green, amber at 30 s left, red at 10 s */
+.rest-strip{transition:background-color .6s ease}
+.rest-strip[data-ph="amber"]{background:color-mix(in srgb,#E8A33D 14%,rgba(22,24,30,.88))}.rest-strip[data-ph="amber"] .rs-fill{background:color-mix(in srgb,#E8A33D 60%,transparent)}
+.rest-strip[data-ph="red"]{background:color-mix(in srgb,#E5534B 14%,rgba(22,24,30,.88))}.rest-strip[data-ph="red"] .rs-fill{background:color-mix(in srgb,#E5534B 62%,transparent)}
+.rs-t{position:relative;flex:1;padding-left:14px;font-size:0.8824rem;color:var(--ink)}
+.rs-t b{font-weight:700;margin-left:4px}
+.rs-b{position:relative;display:flex;align-items:center;gap:6px;height:100%;padding-right:5px}
+.rs-b button{position:relative;border:0;background:rgba(0,0,0,.28);box-shadow:inset 0 0 0 1px rgba(255,255,255,.14);color:var(--ink);font:inherit;font-size:0.8235rem;font-weight:650;padding:0 11px;height:28px;border-radius:8px;transition:transform .08s ease,background-color .08s ease;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.rs-b button:active{transform:scale(.92);background:rgba(0,0,0,.5)}
+.rs-b button::before{content:'';position:absolute;left:50%;top:50%;width:max(100%,44px);height:44px;transform:translate(-50%,-50%)}
+.rs-b button:last-child{padding-right:11px}
+@media (prefers-reduced-motion:reduce){.rs-fill{transition:none}}
+
+/* v186: the running timer pulses — a live dot and a soft glow around the bar; faster in the last 10 s */
+.rest-strip{--ph:var(--good);box-shadow:0 0 0 1px color-mix(in srgb,var(--ph) 55%,transparent);animation:rsGlow 2s ease-in-out infinite}
+.rest-strip[data-ph="amber"]{--ph:#E8A33D}.rest-strip[data-ph="red"]{--ph:#E5534B;animation-duration:1s}
+.rs-t{display:flex;align-items:center}
+.rs-dot{width:8px;height:8px;border-radius:50%;background:#fff;margin-right:8px;flex:none;animation:rsDot 1s ease-in-out infinite}
+.rest-strip[data-ph="red"] .rs-dot{animation-duration:.5s}
+@keyframes rsGlow{0%,100%{box-shadow:0 0 0 1px color-mix(in srgb,var(--ph) 45%,transparent),0 0 0 0 color-mix(in srgb,var(--ph) 0%,transparent)}50%{box-shadow:0 0 0 1.5px var(--ph),0 0 20px 4px color-mix(in srgb,var(--ph) 70%,transparent)}}
+.rs-fill{animation:rsFill 2s ease-in-out infinite}.rest-strip[data-ph="red"] .rs-fill{animation-duration:1s}
+@keyframes rsFill{0%,100%{filter:brightness(1)}50%{filter:brightness(1.35)}}
+@media (prefers-reduced-motion:reduce){.rs-fill{animation:none}}
+@keyframes rsDot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.25;transform:scale(.7)}}
+@media (prefers-reduced-motion:reduce){.rest-strip,.rs-dot{animation:none}}
+
+/* v186.1: parrot green for the running rest timer (was mint) */
+.rest-strip{--ph:#3E9A5C;background:rgba(18,20,25,.92)}
+.rest-strip .rs-fill{background:linear-gradient(90deg,#0F2A17,#16401F)}
+/* v186.2: green phase matches the completed set row (dark green) */
+.rest-strip[data-ph="amber"]{--ph:#E8A33D;background:color-mix(in srgb,#E8A33D 14%,rgba(22,24,30,.88))}.rest-strip[data-ph="amber"] .rs-fill{background:color-mix(in srgb,#E8A33D 60%,transparent)}
+.rest-strip[data-ph="red"]{--ph:#E5534B;background:color-mix(in srgb,#E5534B 14%,rgba(22,24,30,.88))}.rest-strip[data-ph="red"] .rs-fill{background:color-mix(in srgb,#E5534B 62%,transparent)}
+
+/* ===== v187: calm, uniform workout screen — one grid, one row style, 3 text sizes, orange only for the current set and actions ===== */
+html:root #editor .exb-h{display:flex;align-items:center;gap:6px;min-height:44px}
+html:root #editor .exb-name{flex:0 1 auto!important;min-width:0;font-size:1rem!important;font-weight:650!important;letter-spacing:-.01em;text-align:left}
+html:root #editor .exb-tip{margin:0}
+html:root #editor .exb-hb{margin-left:auto}
+html:root #editor .exb-hb .iconbtn{color:var(--muted)!important}
+html:root[data-skin] #editor .set-h{font-size:0.7059rem!important;font-weight:500!important;color:var(--faint)!important;opacity:.75;min-height:22px;padding-block:0!important}
+html:root[data-skin] #editor .set:not(.set-h){min-height:44px;border-radius:12px;margin-bottom:4px;align-items:center}
+html:root[data-skin] #editor .set:not(.set-h):not(.done):not(.cur){background:rgba(255,255,255,.035)}
+html:root[data-skin] #editor .set .si,html:root[data-skin] #editor .set:not(.cur):not(.done) .si,html:root[data-skin] #editor .set.cur .si{height:40px!important;background:transparent!important;box-shadow:none!important;border:0!important;border-radius:8px;font-size:0.8824rem!important;font-weight:600!important;color:var(--ink)}
+html:root[data-skin] #editor .set.af:not(.done):not(.x-af):not(.y-af) .si,html:root #editor .set.af .si{color:var(--muted)!important;font-weight:500!important}
+html:root[data-skin] #editor .set .set-prev,html:root[data-skin] #editor .set .set-prev:not(:disabled){border:0!important;background:none!important;height:40px!important;padding:0 4px!important;font-size:0.8235rem!important;color:var(--muted)!important;font-weight:400}
+html:root[data-skin] #editor .set .set-n{font-size:0.8824rem;color:var(--muted);background:transparent!important}
+html:root[data-skin] #editor .set .chk{width:44px!important;height:44px!important;border:0!important;background:none!important;color:var(--faint);display:grid;place-items:center;position:relative}
+html:root[data-skin] #editor .set .chk::after{content:'';position:absolute;width:26px;height:26px;border-radius:50%;box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--ink) 30%,transparent);pointer-events:none}
+html:root[data-skin] #editor .set .chk svg{width:15px;height:15px;position:relative}
+/* current set: one soft tint across the row, no boxes */
+html:root[data-skin] #editor .set.cur{background:color-mix(in srgb,var(--accent) 13%,transparent)!important}
+html:root[data-skin] #editor .set.cur .set-n{color:var(--accent)!important;font-weight:700}
+html:root[data-skin] #editor .set.cur .chk{color:var(--accent)}
+html:root[data-skin] #editor .set.cur .chk::after{box-shadow:inset 0 0 0 1.5px var(--accent)}
+/* the value being typed: an accent underline instead of a box */
+html:root #editor .set .si.kp-on,html:root[data-skin] #editor .set .si:focus,#editor .set .si:focus{background:transparent!important;box-shadow:inset 0 -2px 0 var(--accent)!important;color:var(--accent)!important;border-radius:0!important}
+/* done set: keeps the dark-green tint and edge */
+html:root[data-skin] #editor .set.done .chk{color:var(--good)}
+html:root[data-skin] #editor .set.done .chk::after{box-shadow:none}
+html:root[data-skin] #editor .set.done .chk svg{width:20px;height:20px}
+/* footer: Add set / Rest as identical quiet buttons */
+html:root #editor .exb-f{display:flex;gap:8px;margin-top:2px}
+html:root #editor .exb-f .btn.sm{height:34px!important;min-height:34px;background:transparent!important;border:0!important;box-shadow:inset 0 0 0 1px var(--line)!important;color:var(--muted)!important;font-size:0.8235rem!important;font-weight:600!important;padding:0 12px!important;border-radius:10px!important}
+html:root #editor .exb-f .btn.sm:active{background:rgba(255,255,255,.06)!important}
+
+/* v187.1: slightly more compact rows; Previous shows it can be tapped */
+html:root[data-skin] #editor .set:not(.set-h){min-height:38px!important;padding-top:0!important;padding-bottom:0!important;margin-bottom:3px}
+html:root[data-skin] #editor .set .si,html:root[data-skin] #editor .set:not(.cur):not(.done) .si,html:root[data-skin] #editor .set.cur .si{height:34px!important}
+html:root[data-skin] #editor .set .set-prev,html:root[data-skin] #editor .set .set-prev:not(:disabled){height:34px!important}
+html:root[data-skin] #editor .set .chk{width:40px!important;height:38px!important}
+html:root[data-skin] #editor .set .chk::after{width:24px;height:24px}
+html:root[data-skin] #editor .set .chk::before{content:'';position:absolute;left:50%;top:50%;width:44px;height:44px;transform:translate(-50%,-50%)}
+html:root #editor .set-n{height:34px!important;min-height:0!important}
+html:root[data-skin] #editor .set .set-prev:not(:disabled):active{background:rgba(255,255,255,.08)!important;border-radius:8px}
 </style>
 
 <header class="top"><div class="brand"><svg class="brand-logo" viewBox="90 30 200 200" width="30" height="30" role="img" aria-label="Iron Ledger logo"><rect x="90" y="30" width="200" height="200" rx="44" fill="#1C1F24"/><rect x="100" y="40" width="180" height="180" rx="36" fill="none" stroke="#3A404A" stroke-width="2"/><line x1="112" y1="100" x2="268" y2="100" stroke="#AEB6BF" stroke-width="6" stroke-linecap="round"/><rect x="136" y="58" width="16" height="84" rx="4" fill="#D5DAE0"/><rect x="156" y="70" width="11" height="60" rx="3" fill="#AEB6BF"/><rect x="228" y="58" width="16" height="84" rx="4" fill="#D5DAE0"/><rect x="213" y="70" width="11" height="60" rx="3" fill="#AEB6BF"/><rect x="128" y="164" width="124" height="6" rx="3" fill="#E8622C"/><rect x="128" y="179" width="92" height="6" rx="3" fill="#6B7480"/><rect x="128" y="194" width="60" height="6" rx="3" fill="#6B7480"/></svg><span class="brand-name">Iron Ledger</span></div><div class="top-in"><h1 id="topTitle">Workout</h1><div class="top-act" id="topAct"></div></div><div class="mode-in" id="modeBar"></div></header>
@@ -3203,8 +3332,10 @@ function startWorkout(src){
   if(S.active){confirmSheet('Workout in progress','Discard the current workout and start a new one?','Discard and start',true).then(ok=>{if(ok){REST=null;go();}});}
   else go();
 }
+/* v185.4: coach tips during a workout: 'hide' (default, tap the dot), 'show', 'off' (no tips, no comeback easing) */
+const coachMode=()=>['show','hide','off'].includes(S.settings.coachTips)?S.settings.coachTips:'hide';
 function autoFillWorkout(w){w.exercises.forEach(e=>{const prev=prevSetsFor(e.exId,w.start,w.id);const ex=getEx(e.exId);
-  const last=prevSessions(e.exId,w.start,w.id,1)[0];const gap=last?Math.floor((w.start-last.at)/DAY):0;const ease=ex.kind==='wr'&&gap>=10;const orig=[];
+  const last=prevSessions(e.exId,w.start,w.id,1)[0];const gap=last?Math.floor((w.start-last.at)/DAY):0;const ease=ex.kind==='wr'&&gap>=10&&coachMode()!=='off';const orig=[];
   e.sets.forEach((s,si)=>{if(s.done)return;const src=srcFor(prevMatch(prev,e.sets,si),s);const fromPrev=s.w==null&&src.w!=null&&!(s.target&&s.target.w!=null);let fill=false;
     ['w','r','t','d'].forEach(k=>{if(s[k]==null&&src[k]!=null){s[k]=src[k];fill=true;}});
     if(ease&&fromPrev&&s.w>0){orig[si]=s.w;s.w=loadRound(ex,s.w*0.9);}
@@ -3322,8 +3453,11 @@ function exBlock(e,ei,ssi){
   const allDone=ED.mode==='live'&&e.sets.length&&e.sets.every(x=>x.done)&&!(ED.open&&ED.open.has(e))&&curSi<0;
   if(allDone){const work=e.sets.filter(x=>x.type!=='w');const best=work.reduce((m,x)=>{if(!m)return x;const a=metrics(k,x),b=metrics(k,m);return (k==='wr'?a.e1>b.e1:k==='r'?a.r>b.r:k==='t'?a.t>b.t:a.d>b.d)?x:m;},null);
     return`<section class="exb exb-fold ${ssi?'ss ss-'+ssi.pos:''}" data-ei="${ei}"><button class="fold-row" data-act="exToggle"><span class="fold-ok"></span><span class="fold-t"><b>${esc(exName(ex))}</b><small>${e.sets.length} set${e.sets.length===1?'':'s'} done${best?' · best '+esc(fmtSet(k,best)):''}</small></span><span class="fold-chev">›</span></button></section>`;}
-  return`<section class="exb ${ssi?'ss ss-'+ssi.pos:''}" data-ei="${ei}">${ssi&&ssi.pos==='first'?`<div class="ss-lab">Superset ${ssi.lab}</div>`:''}<div class="exb-h"><button class="exb-name" data-act="exInfo">${esc(exName(ex))}</button><div class="exb-hb">${ED.w.exercises.length>1?`<button class="iconbtn exb-grip" aria-label="Drag to reorder exercises"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="currentColor"><circle cx="9" cy="6" r="1.6"/><circle cx="15" cy="6" r="1.6"/><circle cx="9" cy="12" r="1.6"/><circle cx="15" cy="12" r="1.6"/><circle cx="9" cy="18" r="1.6"/><circle cx="15" cy="18" r="1.6"/></svg></button>`:''}${ED.mode==='live'&&e.sets.length&&e.sets.every(x=>x.done)&&ED.open&&ED.open.has(e)?`<button class="iconbtn exb-collapse" data-act="exToggle" aria-label="Fold this finished exercise"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg></button>`:''}<button class="iconbtn" data-act="exMenu" aria-label="Exercise options">${I.dots}</button></div></div>
-    ${e.cb&&!e.cbUndo?`<div class="cb-line"><span>Back after ${e.cb.days} days · weights eased 10% to start smoothly</span><button data-act="cbUndo">Undo</button></div>`:''}${(S.settings.exNotes||{})[e.exId]?`<p class="exb-pin">${esc(S.settings.exNotes[e.exId])}</p>`:''}${hintHtml(e)}${e.note?`<p class="exb-note">${esc(e.note)}</p>`:''}
+  const TIPS=(()=>{const cm=coachMode(),cbH=e.cb&&!e.cbUndo&&cm!=='off'?`<div class="cb-line"><span>Back after ${e.cb.days} days · weights eased 10%</span><button data-act="cbUndo">Undo</button></div>`:'',hH=hintHtml(e),any=cbH||hH;
+    if(!any)return{dot:'',html:''};if(cm==='show'||ED.mode!=='live')return{dot:'',html:cbH+hH};const open=!!(ED.tipOpen&&ED.tipOpen.has(e));
+    return{dot:`<button class="exb-tip ${open?'on':''}" data-act="tipToggle" aria-expanded="${open}" aria-label="${open?'Hide':'Show'} coach tip"><i></i></button>`,html:open?`<div class="tip-x">${cbH+hH}</div>`:''};})();
+  return`<section class="exb ${ssi?'ss ss-'+ssi.pos:''}" data-ei="${ei}">${ssi&&ssi.pos==='first'?`<div class="ss-lab">Superset ${ssi.lab}</div>`:''}<div class="exb-h"><button class="exb-name" data-act="exInfo">${esc(exName(ex))}</button>${TIPS.dot}<div class="exb-hb">${ED.w.exercises.length>1?`<button class="iconbtn exb-grip" aria-label="Drag to reorder exercises"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="currentColor"><circle cx="9" cy="6" r="1.6"/><circle cx="15" cy="6" r="1.6"/><circle cx="9" cy="12" r="1.6"/><circle cx="15" cy="12" r="1.6"/><circle cx="9" cy="18" r="1.6"/><circle cx="15" cy="18" r="1.6"/></svg></button>`:''}${ED.mode==='live'&&e.sets.length&&e.sets.every(x=>x.done)&&ED.open&&ED.open.has(e)?`<button class="iconbtn exb-collapse" data-act="exToggle" aria-label="Fold this finished exercise"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg></button>`:''}<button class="iconbtn" data-act="exMenu" aria-label="Exercise options">${I.dots}</button></div></div>
+    ${(S.settings.exNotes||{})[e.exId]?`<p class="exb-pin">${esc(S.settings.exNotes[e.exId])}</p>`:''}${TIPS.html}${e.note?`<p class="exb-note">${esc(e.note)}</p>`:''}
     <div class="set set-h ${cols}"><span>Set</span><span>Previous</span>${heads.map(x=>`<span>${esc(x)}</span>`).join('')}<span>${I.check.replace('width="20" height="20"','width="14" height="14"')}</span></div>
     ${rows}${k==='dt'?cFeelRow(e,ei):''}<div class="exb-f"><button class="btn sm" data-act="addSet">+ Add set</button>${k==='t'&&ED.mode==='live'&&e.sets.some(x=>!x.done)?'<button class="btn sm" data-act="holdTimer">▶ Timer</button>':''}${ED.mode==='live'?`<button class="btn sm" data-act="restCfg">Rest ${rest?fmtDur(rest):'off'}</button>`:''}</div></section>`;
 }
@@ -3344,7 +3478,7 @@ let NS_LAST='',NS_T='',NS_X='';
 function nativeStatus(t,x){if(!NATIVE||typeof NATIVE.workoutStatus!=='function')return;if(t!=null){NS_T=t;NS_X=x||'';}const r=S.active&&REST?Math.round(REST.end):0;const T_=S.active?NS_T:'',X_=S.active?NS_X:'';const k=T_+'|'+X_+'|'+r;if(k===NS_LAST)return;NS_LAST=k;try{NATIVE.workoutStatus(T_,X_,String(r));}catch(e){}}
 function renderDock(){const box=$('#dockSet');if(!box||!ED||ED.mode!=='live')return;const t=dockTarget(),X=ED.w.exercises;
   if(!X.length){box.innerHTML='';dockPad();nativeStatus('Workout in progress','Add an exercise');return;}
-  if(!t){nativeStatus('All sets done','Finish the workout when you are ready');box.innerHTML=`<div class="dock dock-end"><div class="dk-h"><div><b>All sets done</b><small>Add a set or exercise, or finish the workout.</small></div></div><button class="dk-done" data-act="edFinish">Finish workout</button></div>`;dockPad();return;}
+  if(!t){nativeStatus('All sets done','Finish the workout when you are ready');box.innerHTML=`<div class="dock dock-end slim"><div class="dk-row"><div class="dk-endt"><b>All sets done</b></div><button class="dk-done" data-act="edFinish">Finish workout</button></div></div>`;dockPad();return;}
   const e=X[t.ei],s=e.sets[t.si],ex=getEx(e.exId),k=ex.kind,prev=prevSetsFor(e.exId,ED.w.start,ED.w.id),p=prevMatch(prev,e.sets,t.si),ph=liveSrc(e,t.si,prev);
   const val=f=>s[f]!=null?s[f]:ph[f];let n=0,lab='';e.sets.forEach((x,i)=>{if(x.type!=='w'&&x.type!=='d'&&x.type!=='f')n++;if(i===t.si)lab=x.type==='w'?'Warm-up':x.type==='d'?'Drop set':x.type==='f'?'To failure':'Set '+n;});
   const work=e.sets.filter(x=>!x.type||x.type==='n').length;const tg=s.target&&hasData(k,s.target)?fmtSet(k,s.target):'';
@@ -3359,11 +3493,12 @@ function renderDock(){const box=$('#dockSet');if(!box||!ED||ED.mode!=='live')ret
   else if(k==='t')ctl=g('t','time',tt!=null?fmtDur(tt):'–');
   else ctl=g('d',U.d(),d!=null?esc(String(dInv(d))):'–')+g('t','time',tt!=null?fmtDur(tt):'–');
   let pl='';if(k==='wr'&&isPlateEx(ex)){const kg=w;const c=plateCfg(e.exId),u=plateUnit();let tx='';if(kg>0){const v=Math.round(wv(kg)*100)/100,R=plateSolve(v,e.exId);if(R)tx=R.under?`Lighter than the ${pf(R.bar)} ${u} bar`:!R.plates.length?`Empty ${pf(R.bar)} ${u} bar`:`${pf(R.bar)} ${u} bar + ${R.plates.map(pf).join(' · ')} each side${R.ok?'':' (closest)'}`;}else tx=`Bar ${pf(c.bar)} ${u}`;pl=`<button class="dk-pl" data-act="barPick" data-ex="${esc(e.exId)}" data-si="${t.si}" aria-label="Change bar weight"><svg width="22" height="12" viewBox="0 0 22 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M1 6h20"/><rect x="4" y="1.5" width="3" height="9" rx="1"/><rect x="15" y="1.5" width="3" height="9" rx="1"/></svg><span>${esc(tx)}</span><span class="cv">▾</span></button>`;}
-  const done=s.done;const min=!!ui.dockMin;
-  box.innerHTML=`<div class="dock step ${min?'min':''} ${done?'is-done':''} ${af?'af':''}" data-ei="${t.ei}" data-si="${t.si}">
-    <div class="dk-h"><button class="dk-name" data-act="dockGo"><b>${esc(exName(ex))}</b><small>${esc(sub)}</small></button><button class="dk-min" data-act="dockMin" aria-label="${min?'Show controls':'Hide controls'}">${min?I.up||'⌃':I.down}</button></div>
-    ${min?pl:`<div class="dk-ctl ${k==='wr'||k==='dt'?'two':'one'}">${ctl}</div>${pl}`}
-    <div class="dk-act">${k==='t'&&!done?`<button class="dk-sec" data-act="holdTimer">▶ Timer</button>`:''}<button class="dk-done" data-act="tick">${done?'Mark not done':`✓ Done${min&&k==='wr'&&w!=null?' · '+esc(String(wInv(w)))+' × '+(r??'–'):''}`}</button></div></div>`;
+  const done=s.done,two=k==='wr'||k==='dt',tight=two&&box.clientWidth&&box.clientWidth<350;
+  const ok=`<button class="dk-ok" data-act="tick" aria-label="${done?'Mark not done':'Done'}">${done?'<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 14 4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-3"/></svg>':'<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>'}</button>`;
+  /* v185.4: one slim row — name (+ plates) on a small line, controls and ✓ below; on narrow phones a two-value set puts ✓ on the name line */
+  box.innerHTML=`<div class="dock step slim ${tight?'tight':''} ${done?'is-done':''} ${af?'af':''}" data-ei="${t.ei}" data-si="${t.si}">
+    <div class="dk-h"><button class="dk-name" data-act="dockGo" aria-label="${esc(exName(ex)+' · '+sub)}"><b>${esc(exName(ex))}</b></button>${pl}${tight?ok:''}</div>
+    <div class="dk-row"><div class="dk-ctl ${two?'two':'one'}">${ctl}</div>${k==='t'&&!done?`<button class="dk-sec" data-act="holdTimer" aria-label="Start timer">▶</button>`:''}${tight?'':ok}</div></div>`;
   dockPad();}
 function dockPad(){const b=$('#edBody'),d=$('#edDock');if(!b||!d)return;requestAnimationFrame(()=>{b.style.paddingBottom=(d.offsetHeight+16)+'px';});}
 function dockType(f){const t=dockTarget();if(!t)return;const e=ED.w.exercises[t.ei],s=e.sets[t.si];const ph=liveSrc(e,t.si,prevSetsFor(e.exId,ED.w.start,ED.w.id));const v=s[f]!=null?s[f]:ph[f];
@@ -3613,12 +3748,12 @@ function startRest(sec){if(!sec)return;REST={end:Date.now()+sec*1000,total:sec};
 function stopRestTick(){clearInterval(restIv);restIv=null;if(!REST||REST.end>Date.now()+500)restNative(0);}
 function restFlash(){if(MOT_OFF())return;const f=document.createElement('div');f.className='rest-flash';document.body.appendChild(f);setTimeout(()=>f.remove(),1400);}
 function renderRest(){try{nativeStatus();}catch(e){}const er=$('#edRest');if(er)er.hidden=!REST;const bar=$('#restBar');if(!bar)return;if(!REST){bar.hidden=true;bar.innerHTML='';return;}bar.hidden=false;
-  bar.innerHTML=`<div class="rest-in rest-cap"><svg class="rest-ring" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20" class="rr-bg"/><circle cx="24" cy="24" r="20" class="rr-fg" id="restRing" pathLength="100"/></svg><div class="rest-t num"><span id="restLeft"></span><small>Rest</small></div><div class="rest-bs"><button class="btn sm" data-act="restAdj" data-d="-15">−15</button><button class="btn sm" data-act="restAdj" data-d="15">+15</button><button class="btn sm rest-skip" data-act="restSkip">Skip</button></div></div>`;restTick();}
+  bar.innerHTML=`<div class="rest-strip" role="timer" aria-label="Rest timer"><i class="rs-fill" id="restProg"></i><span class="rs-t num"><i class="rs-dot" aria-hidden="true"></i>Rest <b id="restLeft"></b></span><span class="rs-b"><button data-act="restAdj" data-d="-15" aria-label="15 seconds less">−15</button><button data-act="restAdj" data-d="15" aria-label="15 seconds more">+15</button><button data-act="restSkip">Skip</button></span></div>`;restTick();}
 function restTick(){
   if(!REST){stopRestTick();return;}
   const left=(REST.end-Date.now())/1000;
   if(left<=0){const late=left<-3;REST=null;stopRestTick();renderRest();renderMini();beep();restFlash();toast(late?`Rest ended ${fmtDur(Math.round(-left))} ago. Next set!`:'Rest is over. Next set!');return;}
-  const l=$('#restLeft');if(l)l.textContent=fmtDur(Math.ceil(left));const p=$('#restProg');if(p)p.style.width=(left/REST.total*100).toFixed(1)+'%';const rg=$('#restRing');if(rg)rg.style.strokeDashoffset=(100-left/REST.total*100).toFixed(2);
+  const l=$('#restLeft');if(l)l.textContent=fmtDur(Math.ceil(left));const p=$('#restProg');if(p){p.style.width=(left/REST.total*100).toFixed(1)+'%';const st=p.parentNode,ph=left<=10?'red':left<=30?'amber':'green';if(st.dataset.ph!==ph)st.dataset.ph=ph;}const rg=$('#restRing');if(rg)rg.style.strokeDashoffset=(100-left/REST.total*100).toFixed(2);
   $$('.js-rest').forEach(x=>x.textContent=fmtDur(Math.ceil(left)));
 }
 let WL=null;
@@ -4190,7 +4325,8 @@ function settingsSheet(){
     <div class="field"><span class="lbl">Effort rating</span><div class="seg"><button data-sa="eff" data-v="rpe" aria-pressed="${S.settings.effort!=='rir'}">RPE</button><button data-sa="eff" data-v="rir" aria-pressed="${S.settings.effort==='rir'}">RIR</button></div></div>
     <div class="field"><span class="lbl">Count body weight in volume</span><div class="seg"><button data-sa="bwv" data-v="1" aria-pressed="${S.settings.bwVol!==false}">On</button><button data-sa="bwv" data-v="0" aria-pressed="${S.settings.bwVol===false}">Off</button></div><p class="muted" style="font-size:0.8824rem;margin:6px 0 0">Pull-ups, dips and push-ups count your logged body weight × reps.</p></div>
     <div class="field"><span class="lbl">Fill in last time’s values</span><div class="seg"><button data-sa="af" data-v="1" aria-pressed="${S.settings.autofill!==false}">On</button><button data-sa="af" data-v="0" aria-pressed="${S.settings.autofill===false}">Off</button></div><p class="muted" style="font-size:0.8824rem;margin:6px 0 0">New workouts start with your weights and reps from last time. Just tick each set.</p></div>
-    <div class="field"><span class="lbl">Typing numbers during a workout</span><div class="seg"><button data-sa="kpad" data-v="1" aria-pressed="${S.settings.kpad!==false}">In-app keypad</button><button data-sa="kpad" data-v="0" aria-pressed="${S.settings.kpad===false}">Phone keyboard</button></div></div>
+    <div class="field"><span class="lbl">Coach tips during a workout</span><div class="seg"><button data-sa="ctip" data-v="show" aria-pressed="${coachMode()==='show'}">Shown</button><button data-sa="ctip" data-v="hide" aria-pressed="${coachMode()==='hide'}">Hidden</button><button data-sa="ctip" data-v="off" aria-pressed="${coachMode()==='off'}">Off</button></div><p class="muted" style="font-size:0.8824rem;margin:6px 0 0">${coachMode()==='hide'?'Tap the orange dot next to an exercise to see its tip.':coachMode()==='show'?'Tips show under each exercise.':'No tips, and weights are not eased after a break.'}</p></div>
+     <div class="field"><span class="lbl">Typing numbers during a workout</span><div class="seg"><button data-sa="kpad" data-v="1" aria-pressed="${S.settings.kpad!==false}">In-app keypad</button><button data-sa="kpad" data-v="0" aria-pressed="${S.settings.kpad===false}">Phone keyboard</button></div></div>
     <div class="field"><span class="lbl">Big +/− buttons while logging</span><div class="seg"><button data-sa="stp" data-v="1" aria-pressed="${S.settings.steppers!==false}">On</button><button data-sa="stp" data-v="0" aria-pressed="${S.settings.steppers===false}">Off</button></div></div>
     ${isLb()?'':`<div class="field"><span class="lbl">Barbell & other: step for + / − (kg)</span><div class="seg">${[1,1.25,2,2.5].map(v=>`<button data-sa="wstep" data-v="${v}" aria-pressed="${(+S.settings.wstep||2.5)===v}">${v}</button>`).join('')}</div></div>`}
     <div class="field"><span class="lbl">Barbell plates and default bar</span><button class="pl-cfgbtn" style="margin-top:0" data-sa="plcfg">${(()=>{const c=plateCfg();return`Bar ${pf(c.bar)} ${c.u} · plates ${c.have.map(pf).join(', ')}`;})()}<span>Change</span></button><p class="muted" style="font-size:0.8824rem;margin:6px 0 0">Used for the plates line under barbell sets. Tap that line during a workout to give one exercise its own bar.</p></div></div></details>
@@ -4233,6 +4369,7 @@ function settingsSheet(){
     if(a==='bgm'){const v=b.dataset.v;const mark=()=>$$('[data-sa="bgm"]',sh.el).forEach(x=>x.setAttribute('aria-pressed',x.dataset.v===bgMode()));setBg(v);mark();}
     if(a==='appear'){S.settings.appearance=b.dataset.v;touch('settings');applyTheme();render();refreshModeCols(sh);$$('[data-sa="appear"]',sh.el).forEach(x=>x.setAttribute('aria-pressed',x===b));}
     if(a==='stp'){S.settings.steppers=b.dataset.v==='1';touch('settings');$$('[data-sa="stp"]',sh.el).forEach(x=>x.setAttribute('aria-pressed',x===b));if(ED)renderEditorBody();}
+    if(a==='ctip'){S.settings.coachTips=b.dataset.v;touch('settings');$$('[data-sa="ctip"]',sh.el).forEach(x=>x.setAttribute('aria-pressed',x===b));const np=b.closest('.field').querySelector('p');if(np)np.textContent=b.dataset.v==='hide'?'Tap the orange dot next to an exercise to see its tip.':b.dataset.v==='show'?'Tips show under each exercise.':'No tips, and weights are not eased after a break.';if(ED)renderEditorBody();}
     if(a==='kpad'){S.settings.kpad=b.dataset.v==='1';touch('settings');$$('[data-sa="kpad"]',sh.el).forEach(x=>x.setAttribute('aria-pressed',x===b));KP=null;if(ED)renderEditorBody();}
     if(a==='wstep'){S.settings.wstep=+b.dataset.v;touch('settings');$$('[data-sa="wstep"]',sh.el).forEach(x=>x.setAttribute('aria-pressed',x===b));if(ED)renderEditorBody();}
     if(a==='xlW'){if(!S.workouts.length&&!S.body.length){toast('Nothing to export yet');return;}exportXlsx();}
@@ -4366,7 +4503,7 @@ const ACT={
     if(!v||!ED)return;
     if(v==='rpe'){const r=await menuSheet('How hard was it?',[...[10,9.5,9,8.5,8,7.5,7,6].map(x=>({v:String(x),label:`${effLab(x)} · ${RPE_TXT[x]}`,on:s.rpe===x})),{v:'clear',label:'No rating'}]);if(r==null||!ED)return;if(r==='clear')delete s.rpe;else s.rpe=+r;edChanged();renderEditorBody();return;}
     if(v==='del')e.sets.splice(si,1);else if(v==='n')delete s.type;else s.type=v;edChanged();renderEditorBody();},
-  usePrev:el=>{const{e,si,s}=setFrom(el);const p=prevMatch(prevSetsFor(e.exId,ED.w.start,ED.w.id),e.sets,si);if(!p)return;['w','r','t','d'].forEach(k=>{if(p[k]!=null)s[k]=p[k];});edChanged();renderEditorBody();},
+  usePrev:el=>{const{e,si,s}=setFrom(el);const p=prevMatch(prevSetsFor(e.exId,ED.w.start,ED.w.id),e.sets,si);if(!p)return;['w','r','t','d'].forEach(k=>{if(p[k]!=null)s[k]=p[k];});haptic(10);if(!tipSeen('prev')){(S.settings.tipsSeen||(S.settings.tipsSeen={})).prev=1;touch('settings');}edChanged();renderEditorBody();toast(`Last time copied: ${fmtSet(getEx(e.exId).kind,p)}`);},
   tick:el=>{if(STEP_OPEN&&document.querySelector('#editor .step-x')&&!el._afterClose){const ei=el.closest('[data-ei]').dataset.ei,si=el.closest('[data-si]').dataset.si;closeStep(()=>{const b=document.querySelector(`#edBody .set[data-ei="${ei}"][data-si="${si}"] [data-act="tick"]`);if(b){b._afterClose=true;ACT.tick(b);}else renderEditorBody();});return;}
     const{e,si,s,ex}=setFrom(el);STEP_OPEN=null;
     if(!s.done){const p=prevSetsFor(e.exId,ED.w.start,ED.w.id);const src=liveSrc(e,si,p);
@@ -4378,6 +4515,7 @@ const ACT={
     edChanged();renderEditorBody();dockScroll();},
   dockSel:el=>{const{e,s}=setFrom(el);if(!s)return;ED.cur={s,pick:true};if(ED.open)ED.open.add(e);renderEditorBody();},
   exToggle:el=>{const{e}=setFrom(el);ED.open=ED.open||new Set();if(ED.open.has(e))ED.open.delete(e);else ED.open.add(e);renderEditorBody();},
+  tipToggle:el=>{const{e}=setFrom(el);ED.tipOpen=ED.tipOpen||new Set();if(ED.tipOpen.has(e))ED.tipOpen.delete(e);else ED.tipOpen.add(e);renderEditorBody();},
   dockMin:()=>{const d=$('#edDock'),h0=d?d.offsetHeight:0;ui.dockMin=!ui.dockMin;saveUi();renderDock();if(d)moH(d,h0,'#dockSet');},
   dockType:el=>{const f=el.dataset.f,t=dockTarget();if(t&&kpOn()&&(f==='w'||f==='r')){const e=ED.w.exercises[t.ei],s=e.sets[t.si];ED.cur={s,pick:true};KP={s,f,buf:kpVal(s,f),fresh:true};renderEditorBody();setTimeout(kpReveal,60);return;}dockType(f);},
   kpOpen:el=>{const{e,s}=setFrom(el);if(!s)return;ED.cur={s,pick:true};if(ED.open)ED.open.add(e);KP={s,f:el.dataset.f,buf:kpVal(s,el.dataset.f),fresh:true};renderEditorBody();setTimeout(kpReveal,60);},
@@ -4417,8 +4555,8 @@ const ACT={
   barPick:el=>barPick(el),
   restCfg:async el=>{const{e}=setFrom(el);const cur=e.rest??S.settings.rest;const opts=[0,30,45,60,90,120,150,180,240,300];
     const v=await menuSheet('Rest timer',opts.map(s=>({v:String(s),label:s?fmtDur(s):'Off',on:s===cur})));if(v==null||!ED)return;e.rest=+v;edChanged();renderEditorBody();},
-  restAdj:el=>{if(!REST)return;const d=+el.dataset.d;REST.end+=d*1000;restNative(REST.end);REST.total=Math.max(REST.total+d,1);restTick();},
-  restSkip:()=>{REST=null;stopRestTick();renderRest();renderMini();},
+  restAdj:el=>{haptic(10);if(!REST)return;const d=+el.dataset.d;REST.end+=d*1000;restNative(REST.end);/* v185.8: the bar keeps its scale, so −15/+15 shrink or grow it by exactly 15 s; only when more is left than the scale does the scale grow (bar full) */REST.total=Math.max(REST.total,(REST.end-Date.now())/1000,1);restTick();},
+  restSkip:()=>{haptic(10);REST=null;stopRestTick();renderRest();renderMini();},
 };
 /* v184.2: the keypad closes when the set is completed, the workout is minimised or finished; − / + keep it in step */
 {const _t=ACT.tick,_st=ACT.step,_m=ACT.edMin,_f=ACT.edFinish;
@@ -4681,7 +4819,7 @@ function overloadHint(e){
   return null;
 }
 function hintHtml(e){
-  const h=overloadHint(e);if(!h)return'';
+  if(coachMode()==='off')return'';const h=overloadHint(e);if(!h)return'';
   const v=h.perSet?h.title+' '+U.w():h.w!=null&&h.r!=null?`${wf(h.w)} ${U.w()} × ${h.r}`:h.r!=null?`${h.r} reps`:h.t!=null?fmtDur(h.t):h.title;
   return`<div class="hint1 ${h.perSet?'multi':''} ${h.deload?'deload':''}"><span class="h1-dot" aria-hidden="true"></span><span class="h1-t">${h.deload?'Deload':'Try'}<b class="num">${esc(v)}</b></span><button class="h1-why" data-act="hintWhy">Why?</button>${e.hintUsed?'<span class="hint-ok">Applied</span>':'<button class="btn sm" data-act="applyHint">Use</button>'}</div>`;
 }
@@ -5757,7 +5895,7 @@ async function shareTrainerWeek(){
 /* ---------- how to use: guide + first-run tour ---------- */
 const GUIDE=[
  ['Getting started',I.dumbbell,`<ul><li>Pick your training type at the top: <b>Gym</b>, <b>Calisthenics</b>, <b>CrossFit</b> or <b>Cardio</b>. Routines, exercises and colours follow the mode.</li><li>Tap <b>▶ Today</b> to start the routine planned for today. It matches the weekday in a routine's name (e.g. "Monday Chest Day"), otherwise it picks the next routine in your rotation.</li><li>Or tap <b>Start empty workout</b> and add exercises yourself.</li><li>Everything saves automatically while you train.</li></ul>`],
- ['Logging sets',I.check,`<ul><li>Type weight and reps, or use the big <b>+ / −</b> buttons under the next set (weight step is set in Settings).</li><li>Tap <b>✓</b> to mark a set done. The rest timer starts by itself.</li><li><b>Swipe a set right</b> to mark it done, <b>swipe left</b> to delete it.</li><li><b>Hold ✓</b> for a moment to finish all remaining sets of that exercise at once.</li><li>The grey <b>Previous</b> column shows last time. Tap it to copy those numbers.</li><li>Tap the <b>set number</b> to make it a warm-up (W), drop set (D) or failure set (F). Warm-ups don't count towards your stats.</li><li>Forgot to tap <b>Finish</b>? After 2 hours without activity the workout is saved for you, ending 5 minutes after your last set. Tap <b>Undo</b> on the home screen to reopen it.</li><li>The <b>Target</b> line above an exercise is what to lift today. Tap <b>Use</b> to fill it in, or <b>Why?</b> for the reason.</li><li>On barbell exercises, a line under the next set shows the <b>plates for each side</b>. It follows the weight as you change it. Tap the line to change the bar for that exercise (e.g. a 15 kg or EZ bar).</li><li><b>Coach → Paste a plan</b>: copy your trainer’s plan from WhatsApp or email, paste it, and every day becomes a routine. Check the preview, then Save.</li><li>Tap a set number to mark it as warm-up, drop set or failure, or to <b>rate how hard it was (RPE)</b>.</li><li>Tap the outlined set to open <b>− / +</b> buttons, then ✓. Tap a number there to type it instead.</li><li>Tap <b>Finish</b> when you're done. New records get a trophy.</li></ul>`],
+ ['Logging sets',I.check,`<ul><li>Type weight and reps, or use the big <b>+ / −</b> buttons under the next set (weight step is set in Settings).</li><li>Tap <b>✓</b> to mark a set done. The rest timer starts by itself.</li><li><b>Swipe a set right</b> to mark it done, <b>swipe left</b> to delete it.</li><li><b>Hold ✓</b> for a moment to finish all remaining sets of that exercise at once.</li><li>The grey <b>Previous</b> column shows last time. Tap it to copy those numbers.</li><li>Tap the <b>set number</b> to make it a warm-up (W), drop set (D) or failure set (F). Warm-ups don't count towards your stats.</li><li>Forgot to tap <b>Finish</b>? After 2 hours without activity the workout is saved for you, ending 5 minutes after your last set. Tap <b>Undo</b> on the home screen to reopen it.</li><li>An <b>orange dot</b> next to an exercise name holds a coach tip (what to lift today, or a note after a break). Tap it to see the tip, then <b>Use</b> to fill it in or <b>Why?</b> for the reason. Settings → Workout → Coach tips: Shown, Hidden or Off.</li><li>On barbell exercises, a line under the next set shows the <b>plates for each side</b>. It follows the weight as you change it. Tap the line to change the bar for that exercise (e.g. a 15 kg or EZ bar).</li><li><b>Coach → Paste a plan</b>: copy your trainer’s plan from WhatsApp or email, paste it, and every day becomes a routine. Check the preview, then Save.</li><li>Tap a set number to mark it as warm-up, drop set or failure, or to <b>rate how hard it was (RPE)</b>.</li><li>Tap the outlined set to open <b>− / +</b> buttons, then ✓. Tap a number there to type it instead.</li><li>Tap <b>Finish</b> when you're done. New records get a trophy.</li></ul>`],
  ['Exercise options',I.dots,`<ul><li>Tap <b>⋯</b> next to an exercise to add a note, change the rest timer, make a <b>superset</b> with the next exercise, replace, move or remove it.</li><li>Tap the exercise name to see its records and progress chart.</li><li>Minimise a running workout with the arrow at the top left. A bar at the bottom brings you back.</li></ul>`],
  ['Routines',I.list,`<ul><li>Open <b>Routines</b> on the home screen and tap <b>+ New routine</b>.</li><li>Add exercises, sets and target reps. Name it with a weekday ("Tuesday Back Day") and the Today button will offer it on that day.</li><li>After a workout from a routine, you can update the routine with what you actually did.</li><li>A finished workout can also be saved as a new routine from History.</li></ul>`],
  ['Past workouts & calendar',I.history,`<ul><li>The <b>ring</b> next to the week shows workouts done vs your target workouts per week. Tap it to change the target. The muscle map scales with it.</li><li>The week strip at the top shows <b>KW</b> week numbers. Use ‹ › to move between weeks.</li><li>Tap any past day, or <b>Log a past workout</b>, to add a workout you forgot.</li><li><b>History</b> shows a month calendar and every workout. Tap one to view, edit, delete or save it as a routine.</li></ul>`],
@@ -5786,7 +5924,7 @@ const TOUR_GO={sel:'[data-act="startEmpty"],[data-act="today"]',t:'Now try it',h
 const TOUR_B=[
  {t:'Your practice workout',h:'This is the workout screen. Here’s how logging works. It’s practice, so nothing is saved.',noBack:1},
  {sel:'#dockSet .dk-ctl',t:'Weight and reps',h:'Use the big <b>− / +</b> buttons, or tap a number to type it. Values the app fills in for you (from last time or your routine) look faded until you change or tick them.'},
- {sel:'#dockSet .dk-done',t:'Tick it off',h:'Tap <b>✓ Done</b> when the set is finished. The rest timer starts by itself. Only ticked sets are saved unless you choose otherwise.'},
+ {sel:'#dockSet .dk-ok',t:'Tick it off',h:'Tap <b>✓</b> when the set is finished. The rest timer starts by itself. Only ticked sets are saved unless you choose otherwise.'},
  {sel:'#editor .set.cur .set-n',t:'Set types',h:'Tap the <b>set number</b> for warm-up or drop sets. <b>Swipe a set right</b> = done, <b>left</b> = delete.'},
  {sel:'#editor [data-act="edAddEx"]',t:'Add exercises',h:'Pick from the library, or create your own.'},
  {sel:'#editor [data-act="edMin"]',t:'Minimise',h:'The workout keeps running while you look at History or Progress.'},
@@ -5887,6 +6025,7 @@ function tipAfterTick(e){if(!ED||ED.mode!=='live')return;const ex=getEx(e.exId);
     setTimeout(()=>showTip('hold',document.querySelector(`#edBody .set[data-ei="${ei}"][data-si="${si}"] .chk`),'<b>Tip:</b> hold ✓ to finish all remaining sets of this exercise at once.'),350);}}
 function tipOnStart(){if(!ED||ED.mode!=='live')return;setTimeout(()=>{const first=document.querySelector('#edBody .set[data-si]:not(.set-h)');if(!first)return;
   if(!tipSeen('swipe')){showTip('swipe',first,'<b>Tip:</b> swipe a set right to complete it, left to delete it.');return;}
+  {const pv=document.querySelector('#edBody .set:not(.done) .set-prev:not(:disabled)');if(pv&&!tipSeen('prev')){showTip('prev',pv,'<b>Tip:</b> tap a <b>Previous</b> value to copy last time’s weight and reps into that set.');return;}}
   const real=S.workouts.filter(w=>!w.sample);if(real.length>=3&&!real.some(w=>w.exercises.some(x=>x.sets.some(st=>st.type)))){const sn=first.querySelector('.set-n');if(showTip('settype',sn,'<b>Tip:</b> tap the set number to mark warm-up, drop or failure sets.'))setNHint(sn);}},700);}
 /* set-number hint: the number taps itself through W → D → F and back, with a ring pulse each step */
 function setNHint(sn){if(!sn||MOT_OFF())return;const tn=[...sn.childNodes].find(n=>n.nodeType===3&&n.textContent.trim());if(!tn)return;
@@ -5898,7 +6037,7 @@ function setNHint(sn){if(!sn||MOT_OFF())return;const tn=[...sn.childNodes].find(
   setTimeout(step,250);}
 function tipOnRest(){setTimeout(()=>showTip('rest',document.querySelector('#restBar [data-act="restAdj"][data-d="15"]'),'<b>Tip:</b> need more or less rest? Tap +15 or −15.'),600);}
 /* ---------- what's new (once per app version) ---------- */
-const APP_VER=185.3;
+const APP_VER=187.3;
 /* What's new pops up only when this list changes (WN_VER), never just because the app updated. Always available in Settings. */
 const WN_VER=3;
 const WHATS_NEW=[['A new look','A dark, glassy design over a real gym photo. Pick Loft or Racks in Settings → Look.'],
