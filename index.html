@@ -1911,6 +1911,13 @@ html:root[data-skin] #editor .set .chk::after{width:24px;height:24px}
 html:root[data-skin] #editor .set .chk::before{content:'';position:absolute;left:50%;top:50%;width:44px;height:44px;transform:translate(-50%,-50%)}
 html:root #editor .set-n{height:34px!important;min-height:0!important}
 html:root[data-skin] #editor .set .set-prev:not(:disabled):active{background:rgba(255,255,255,.08)!important;border-radius:8px}
+
+/* v187.4: Started / Minutes — two equal-height fields side by side; the iPhone date field can no longer spill over Minutes */
+#editor .ed-when{display:grid!important;grid-template-columns:minmax(0,1fr) 92px!important;gap:10px!important;align-items:end}
+#editor .ed-when .field{min-width:0;margin:0}
+#editor .ed-when .inp{display:block;width:100%!important;min-width:0!important;max-width:100%;box-sizing:border-box;height:44px!important;min-height:44px;padding:0 12px!important;border-radius:12px!important;font-size:0.9412rem!important;line-height:44px;text-align:left!important;-webkit-appearance:none;appearance:none;overflow:hidden}
+#editor .ed-when input[type="datetime-local"]::-webkit-date-and-time-value{text-align:left;margin:0}
+#editor .ed-when input[type="datetime-local"]::-webkit-datetime-edit{padding:0}
 </style>
 
 <header class="top"><div class="brand"><svg class="brand-logo" viewBox="90 30 200 200" width="30" height="30" role="img" aria-label="Iron Ledger logo"><rect x="90" y="30" width="200" height="200" rx="44" fill="#1C1F24"/><rect x="100" y="40" width="180" height="180" rx="36" fill="none" stroke="#3A404A" stroke-width="2"/><line x1="112" y1="100" x2="268" y2="100" stroke="#AEB6BF" stroke-width="6" stroke-linecap="round"/><rect x="136" y="58" width="16" height="84" rx="4" fill="#D5DAE0"/><rect x="156" y="70" width="11" height="60" rx="3" fill="#AEB6BF"/><rect x="228" y="58" width="16" height="84" rx="4" fill="#D5DAE0"/><rect x="213" y="70" width="11" height="60" rx="3" fill="#AEB6BF"/><rect x="128" y="164" width="124" height="6" rx="3" fill="#E8622C"/><rect x="128" y="179" width="92" height="6" rx="3" fill="#6B7480"/><rect x="128" y="194" width="60" height="6" rx="3" fill="#6B7480"/></svg><span class="brand-name">Iron Ledger</span></div><div class="top-in"><h1 id="topTitle">Workout</h1><div class="top-act" id="topAct"></div></div><div class="mode-in" id="modeBar"></div></header>
@@ -6037,7 +6044,7 @@ function setNHint(sn){if(!sn||MOT_OFF())return;const tn=[...sn.childNodes].find(
   setTimeout(step,250);}
 function tipOnRest(){setTimeout(()=>showTip('rest',document.querySelector('#restBar [data-act="restAdj"][data-d="15"]'),'<b>Tip:</b> need more or less rest? Tap +15 or −15.'),600);}
 /* ---------- what's new (once per app version) ---------- */
-const APP_VER=187.3;
+const APP_VER=187.4;
 /* What's new pops up only when this list changes (WN_VER), never just because the app updated. Always available in Settings. */
 const WN_VER=3;
 const WHATS_NEW=[['A new look','A dark, glassy design over a real gym photo. Pick Loft or Racks in Settings → Look.'],
